@@ -1,0 +1,15 @@
+{
+  "name": "abahz-tools",
+  "private": true,
+  "description": "Outils de mise en ligne d'ABAHZ Web (hors du site publié).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node ../abahz-web/tests/run-node.mjs",
+    "serve": "node serve.mjs ../dist 8766",
+    "dev": "node serve.mjs ../abahz-web 8765"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10"
+  }
+}

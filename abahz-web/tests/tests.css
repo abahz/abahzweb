@@ -1,0 +1,6 @@
+body { font: 15px/1.5 system-ui, sans-serif; max-width: 800px; margin: 24px auto; padding: 0 16px; }
+ul { list-style: none; padding: 0; }
+li { padding: 4px 8px; border-radius: 4px; margin: 2px 0; }
+.ok { color: #1e7d32; }
+.ko { color: #b3261e; font-weight: 600; }
+li.ko { background: #fde8e7; }
