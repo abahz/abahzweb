@@ -1,13 +1,14 @@
 // Service Worker : met en cache les fichiers statiques pour le hors ligne (NFR-04).
 // Incrémenter VERSION à chaque déploiement : l'ancien cache est alors supprimé.
 
-const VERSION = 'abahz-v0.7.1';
+const VERSION = 'abahz-v0.9.0';
 
 const SHELL = [
   './',
   'index.html',
   'manifest.webmanifest',
   'icons/logo.webp',
+  'icons/google.svg',
   'css/base.css',
   'css/components.css',
   'css/print.css',

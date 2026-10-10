@@ -28,3 +28,12 @@ npm run serve        # prévisualise ../dist sur http://127.0.0.1:8766 (compress
 Il faut seulement un hébergement statique en HTTPS. `_headers` est lu par Netlify et Cloudflare Pages. Ailleurs (GitHub Pages, serveur Apache ou Nginx), la CSP de `index.html` s'applique quand même, mais les autres en-têtes sont à reprendre dans la configuration.
 
 L'adresse publiée (par exemple `https://abahz.example`) doit être ajoutée dans Supabase → Authentication → URL Configuration (Site URL et Redirect URLs).
+
+## Hébergement actuel (10/10/2026)
+
+- Netlify, projet `abahz3` (compte jeanballe02), ID `3278ab16-cfb7-4267-83ca-6fb807ef41d0`.
+- Adresses : https://abahz3.netlify.app et https://abahz.com (+ www), une fois les DNS IONOS modifiés.
+- Mise à jour : `npm run deploy` dans `tools/` (tests, build, publication). Se connecter une fois avec `npx netlify-cli login`.
+- Badge « Built with Netlify » désactivé : son script injecté était bloqué par la CSP.
+- DNS chez IONOS : `A @ → 75.2.60.5`, `CNAME www → abahz3.netlify.app`, AAAA de la page d'attente IONOS supprimé. MX et SPF (e-mails IONOS) inchangés.
+- Supabase, Auth → URL Configuration → Redirect URLs : `https://abahz.com/**`, `https://www.abahz.com/**`, `https://abahz3.netlify.app/**`, `http://localhost:8765/**`.

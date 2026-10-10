@@ -1,10 +1,9 @@
 // Session Supabase Auth : connexion, inscription, rafraîchissement, déconnexion.
 
-import { authApi, rest, ApiError } from './api.js';
+import { authApi, rest, ApiError, OFFLINE_MESSAGE } from './api.js';
 import { store } from './store.js';
 import { getMeta, setMeta, delMeta, clear, count, destroy } from './db.js';
 import { writeRow } from './remote.js';
-import { phone as normPhone } from './format.js';
 
 const SESSION_KEY = 'session';
 const REFRESH_MARGIN = 60_000; // rafraîchir 60 s avant expiration
@@ -76,7 +75,10 @@ async function loadProfile(authId, email) {
   if (!rows.length) throw new ApiError('Aucune boutique ABAHZ n\'est associée à ce compte.', 404);
   const user = scrub(rows[0]);
   const shops = await rest('shops', `id=eq.${encodeURIComponent(user.shopid)}&select=*`);
-  return { user, shop: scrub(shops[0]) || null };
+  const shop = scrub(shops[0]) || null;
+  // La base nomme la colonne id_nat ; les écrans (comme Android) lisent idNat.
+  if (shop && shop.idNat == null) shop.idNat = shop.id_nat ?? '';
+  return { user, shop };
 }
 
 /** Restaure la session enregistrée (fonctionne hors ligne). */
@@ -122,30 +124,105 @@ export function refresh() {
   return refreshing;
 }
 
-/** Connexion par e-mail + mot de passe, comme l'app Android (AUTH-01). */
-export async function signIn(rawEmail, password) {
+// --- Connexion Google (AUTH-01), seul mode de connexion comme l'app Android (AuthScreen) ---
+// Flux PKCE de Supabase : Google renvoie vers la page avec `?code=…` (jamais dans le #, qui sert au
+// routeur), puis le code est échangé contre la session avec le vérificateur gardé dans la base locale.
+
+const PKCE_KEY = 'pkce';
+const PENDING_KEY = 'pendingAccount'; // compte Google connecté mais sans boutique : inscription à finir
+
+const b64url = (bytes) => btoa(String.fromCharCode(...new Uint8Array(bytes)))
+  .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+
+/** Adresse de retour après Google : la page elle-même, sans requête ni hash (à autoriser dans Supabase). */
+export const redirectUrl = () => location.origin + location.pathname;
+
+/** Ouvre la page de connexion Google (quitte l'application). */
+export async function signInWithGoogle() {
+  const verifier = b64url(crypto.getRandomValues(new Uint8Array(32)));
+  const challenge = b64url(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
+  await setMeta(PKCE_KEY, verifier);
+  const params = new URLSearchParams({
+    provider: 'google', redirect_to: redirectUrl(),
+    code_challenge: challenge, code_challenge_method: 's256',
+  });
+  location.assign(`${store.get('config').supabaseUrl}/auth/v1/authorize?${params}`);
+}
+
+/**
+ * Au démarrage : termine un retour de Google (`?code=` ou `?error=`), puis retire ces paramètres de
+ * l'adresse. Renvoie « signedIn », « register » (compte sans boutique) ou null s'il n'y avait rien.
+ * Une erreur est rangée dans store `authError` pour l'écran de connexion.
+ */
+export async function completeGoogleSignIn() {
+  const params = new URLSearchParams(location.search);
+  const code = params.get('code');
+  const failure = params.get('error_description') || params.get('error');
+  if (!code && !failure) return null;
+  history.replaceState(null, '', redirectUrl() + location.hash);
+  const verifier = await getMeta(PKCE_KEY);
+  await delMeta(PKCE_KEY);
+  try {
+    if (failure) throw new ApiError(failure.replace(/\+/g, ' '), 400);
+    if (!verifier) throw new ApiError('Connexion interrompue. Recommencez avec Google.', 400);
+    const t = await authApi('token?grant_type=pkce', { auth_code: code, code_verifier: verifier }, { auth: false });
+    return await openSession(fromToken(t, null), t.user?.email);
+  } catch (err) {
+    store.set('authError', err.offline ? OFFLINE_MESSAGE : err.message);
+    return null;
+  }
+}
+
+/** Charge la fiche du compte ; sans fiche, garde le compte en attente d'inscription (comme onNewAccount). */
+async function openSession(partial, rawEmail) {
   const email = normEmail(rawEmail);
-  const t = await authApi('token?grant_type=password', { email, password }, { auth: false });
-  const partial = fromToken(t, null);
   pendingToken = partial.access_token;
   try {
     await save({ ...partial, ...(await loadProfile(partial.auth_id, email)) });
+    return 'signedIn';
+  } catch (err) {
+    if (err.status !== 404) throw err;
+    await setMeta(PENDING_KEY, { ...partial, email });
+    store.set('pendingAccount', { email });
+    return 'register';
   } finally {
     pendingToken = null;
   }
 }
 
+/** Compte Google en attente d'inscription (après un rechargement de la page), ou null. */
+export async function pendingAccount() {
+  const p = await getMeta(PENDING_KEY);
+  store.set('pendingAccount', p ? { email: p.email } : null);
+  return p ? { email: p.email } : null;
+}
+
+/** Abandon de l'inscription : retour à la page d'accueil, session Google fermée. */
+export async function cancelPendingAccount() {
+  const p = await getMeta(PENDING_KEY);
+  await delMeta(PENDING_KEY);
+  store.set('pendingAccount', null);
+  if (p?.access_token) {
+    pendingToken = p.access_token;
+    try { await authApi('logout', {}, { timeout: 5000 }); } catch { /* hors ligne : le jeton expirera */ } finally { pendingToken = null; }
+  }
+}
+
 /**
- * Inscription d'une boutique (AUTH-02, AUTH-03), dans le même ordre qu'Android (MainActivity) :
- * compte Auth, puis boutique BASIC, puis fiche ADMIN « 001 » qui référence la boutique.
- * Les mots de passe ne sont jamais écrits dans les tables (shops.admin et users.password vides).
+ * Inscription d'une boutique (AUTH-02, AUTH-03), dans le même ordre qu'Android (MainActivity) : le compte
+ * Google est déjà ouvert, puis boutique BASIC, puis fiche ADMIN « 001 » qui référence la boutique.
+ * Aucun mot de passe : shops.admin et users.password restent vides.
  */
 export async function register(form) {
-  const email = normEmail(form.email);
-  const tel = form.phone ? normPhone(form.phone) : '';
-  if (form.phone && !tel) throw new ApiError('Numéro de téléphone invalide (ex. +243 812 345 678).', 400);
-
-  const partial = await openAccount(email, form.password);
+  let partial = await getMeta(PENDING_KEY);
+  if (!partial) throw new ApiError('Connectez-vous d\'abord avec Google.', 401);
+  const { email } = partial;
+  if (partial.expires_at - Date.now() < REFRESH_MARGIN) {
+    // Formulaire resté ouvert plus d'une heure : jeton Google à renouveler.
+    const t = await authApi('token?grant_type=refresh_token', { refresh_token: partial.refresh_token }, { auth: false });
+    partial = { ...fromToken(t, partial), email };
+    await setMeta(PENDING_KEY, partial);
+  }
   pendingToken = partial.access_token;
   const now = Date.now();
   try {
@@ -157,42 +234,23 @@ export async function register(form) {
       if (!owned.length) {
         await writeRow('shops', {
           id: shopId, name: form.shopName, owner: email, type: 'BASIC',
-          rccm: form.rccm || '', idNat: form.idNat || '', address: form.address || '',
+          rccm: form.rccm || '', id_nat: form.idNat || '', address: form.address || '', // colonne réelle : id_nat
           category: form.category, devise: form.devise === '$' ? '$' : 'FC',
           created: now, updated: now,
         }, { upsert: false });
       }
       await writeRow('users', {
-        id: partial.auth_id, name: form.name, phone: tel, email, shopid: shopId,
+        id: partial.auth_id, name: form.name, email, shopid: shopId,
         role: 'ADMIN', code: '001', created: now, updated: now,
       }, { upsert: false });
     }
-    await save({ ...partial, ...(await loadProfile(partial.auth_id, email)) });
+    const { email: _, ...session } = partial;
+    await save({ ...session, ...(await loadProfile(partial.auth_id, email)) });
+    await delMeta(PENDING_KEY);
+    store.set('pendingAccount', null);
   } finally {
     pendingToken = null;
   }
-}
-
-/**
- * Crée le compte Auth ; si l'e-mail est déjà inscrit (essai précédent interrompu),
- * se connecte avec le même mot de passe pour terminer l'inscription.
- */
-async function openAccount(email, password) {
-  let t;
-  try {
-    t = await authApi('signup', { email, password }, { auth: false });
-  } catch (err) {
-    if (!/already|registered|exists/i.test(err.message)) throw err;
-    try {
-      t = await authApi('token?grant_type=password', { email, password }, { auth: false });
-    } catch {
-      throw new ApiError('Cet e-mail a déjà un compte. Connectez-vous, ou utilisez son mot de passe pour terminer l\'inscription.', 409);
-    }
-  }
-  if (!t.access_token) {
-    throw new ApiError('Compte créé. Confirmez votre adresse e-mail puis connectez-vous.', 202);
-  }
-  return fromToken(t, null);
 }
 
 /** Nombre d'opérations locales pas encore envoyées. */

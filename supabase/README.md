@@ -4,7 +4,8 @@ Projet de production : `qvjynsbvcbhmrzwaodyv` (partagé avec l'app Android).
 
 | Fichier | Contenu | État |
 |---|---|---|
-| `migrations/000_fermer_fuite.sql` | **Urgence** : efface les mots de passe en clair (`users.password`, `shops.admin`), empêche leur réécriture, retire à la clé anon l'accès aux tables (sauf lecture de `app_config`) | rédigé, validé par l'utilisateur, à appliquer |
+| `migrations/000_fermer_fuite.sql` | **Urgence** : efface les mots de passe en clair (`users.password`, `shops.admin`), empêche leur réécriture, retire à la clé anon l'accès aux tables (sauf lecture de `app_config`) | **appliqué le 10/10/2026 à 17 h 05** : 0 mot de passe restant, clé anon refusée (401) sauf `app_config` |
+| `migrations/000b_remplir_email.sql` | Recopie l'e-mail du compte Auth dans `users.email` (colonne ajoutée le 10/10 à 15 h 21 par une autre session, vide pour 7 fiches sur 8) | **appliqué le 10/10/2026 à 17 h 06** : 3 fiches sur 10 ont un e-mail. Les 5 ADMIN restants sont des comptes **téléphone** (aucun e-mail dans Auth) et les 2 caissiers n'ont pas de compte Auth : à rattacher à la main (voir le fichier) |
 | `migrations/001_schema.sql` | Colonnes optionnelles, `dept_payment`, `tombstones`, `shop_counters`, index de pull | rédigé, non appliqué |
 | `migrations/002_updated_tombstones.sql` | Triggers `updated` en ms et journal des suppressions | rédigé, non appliqué |
 | `migrations/003_rls.sql` | RLS par boutique, rôles ADMIN/CASHIER, dernier ADMIN protégé | rédigé, non appliqué ⚠ voir `ANDROID.md` |
@@ -16,7 +17,7 @@ Projet de production : `qvjynsbvcbhmrzwaodyv` (partagé avec l'app Android).
 - **Toutes les tables sont ouvertes** : politiques `RLS` (rôle `public`) et `Allow all authenticated for …`, avec `using true`. Toute personne qui a la clé anon (présente dans l'APK et sur le site) peut lire, modifier et supprimer les données de toutes les boutiques.
 - `users.password` est rempli pour 7 fiches sur 8, et `shops.admin` pour 6 boutiques sur 8. Ces champs sont donc lisibles par n'importe qui.
 - 2 fiches `users` sur 8 n'ont pas pour `id` l'identifiant de leur compte Auth, et 6 boutiques sur 8 n'ont pas l'e-mail d'un compte comme `owner`. Avec `003` tel quel, ces comptes perdraient l'accès à leur boutique.
-- `users.sync` est de type `text`, et non `int`. Les colonnes `users.email` et `shops.devise` n'existent pas.
+- `users.sync` est de type `text`, et non `int`. `users.email` et `shops.devise` ont été ajoutées le 10/10 à 15 h 21 (migration `add_users_email_and_shops_devise`).
 - 13 comptes Auth sur 16 n'ont pas confirmé leur e-mail.
 - Ventes : 148 factures, aucun N° en double, aucune quantité décimale. Les 16 dettes ont un `id` en `dept_…`.
 

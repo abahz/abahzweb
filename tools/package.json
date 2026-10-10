@@ -7,7 +7,8 @@
     "build": "node build.mjs",
     "test": "node ../abahz-web/tests/run-node.mjs",
     "serve": "node serve.mjs ../dist 8766",
-    "dev": "node serve.mjs ../abahz-web 8765"
+    "dev": "node serve.mjs ../abahz-web 8765",
+    "deploy": "npm test && npm run build && npx -y netlify-cli deploy --dir=../dist --prod --site 3278ab16-cfb7-4267-83ca-6fb807ef41d0"
   },
   "devDependencies": {
     "esbuild": "^0.25.10"

@@ -7,7 +7,7 @@ import { loadSettings } from './core/settings.js';
 import { refreshCartCount } from './core/cart.js';
 import { startSync } from './core/sync.js';
 import { configure } from './core/api.js';
-import { restore, token, refresh } from './core/auth.js';
+import { restore, token, refresh, completeGoogleSignIn } from './core/auth.js';
 import { start, navigate, currentPath, HOME } from './core/router.js';
 import { setCurrency } from './core/format.js';
 import { icon, iconBadge } from './ui/icons.js';
@@ -237,6 +237,9 @@ async function boot() {
     setCurrency(s?.shop?.devise || config.currency); // devise de la boutique (FC ou $), comme Android
   });
   const onRoute = buildShell();
+  // Retour de Google : session ouverte, ou compte sans boutique envoyé vers l'inscription.
+  const google = await completeGoogleSignIn();
+  if (google) navigate(google === 'register' ? '/inscription' : HOME, { replace: true });
   await restore();
   applySessionClasses(store.get('session'));
   setCurrency(store.get('session')?.shop?.devise || config.currency);

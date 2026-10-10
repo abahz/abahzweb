@@ -1,7 +1,8 @@
 // #/inscription — calqué sur RegisterScreen (Android) : étape 1 la boutique, étape 2 le gérant (AUTH-02 à AUTH-04).
+// Atteint seulement après la connexion Google d'un compte sans boutique : ni e-mail à saisir ni mot de passe.
 
 import { h, formData } from '../core/dom.js';
-import { register } from '../core/auth.js';
+import { register, pendingAccount, cancelPendingAccount } from '../core/auth.js';
 import { navigate } from '../core/router.js';
 import { field } from '../ui/field.js';
 import { icon, iconBadge } from '../ui/icons.js';
@@ -22,7 +23,10 @@ function step(badge, n, title, ...fields) {
     ...fields);
 }
 
-export function render(root) {
+export async function render(root) {
+  const account = await pendingAccount();
+  if (!account) { navigate('/connexion', { replace: true }); return; }
+
   const error = h('p', { class: 'error-box', role: 'alert' });
   const label = 'Créer la boutique & Démarrer';
   const submit = h('button', { type: 'submit', class: 'btn btn-primary btn-lg' }, label);
@@ -30,7 +34,7 @@ export function render(root) {
   const form = h('form', { class: 'page-narrow register' },
     h('header', { class: 'subbar' },
       h('button', {
-        type: 'button', class: 'icon-btn', 'aria-label': 'Retour', onclick: () => navigate('/connexion'),
+        type: 'button', class: 'icon-btn', 'aria-label': 'Retour', onclick: async () => { await cancelPendingAccount(); navigate('/connexion'); },
       }, icon('back')),
       h('div', { class: 'sub-title' },
         h('strong', {}, 'Créer votre boutique'),
@@ -45,9 +49,7 @@ export function render(root) {
         field({ id: 'idNat', label: 'ID Nat (Optionnel)' }))),
     step('admin', 2, 'Compte administrateur (gérant)',
       field({ id: 'name', label: 'Nom complet *', icon: 'person', required: true, autocomplete: 'name' }),
-      field({ id: 'email', label: 'Email *', icon: 'email', type: 'email', inputmode: 'email', required: true, autocomplete: 'username' }),
-      field({ id: 'phone', label: 'Téléphone (Optionnel)', icon: 'badge', type: 'tel', inputmode: 'tel', autocomplete: 'tel' }),
-      field({ id: 'password', label: 'Mot de passe *', icon: 'lock', type: 'password', required: true, minlength: '6', autocomplete: 'new-password' })),
+      h('p', { class: 'info' }, icon('email'), h('span', {}, 'Compte Google : ', h('strong', {}, account.email)))),
     error,
     submit);
 
