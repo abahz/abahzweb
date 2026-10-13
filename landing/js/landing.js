@@ -8,7 +8,7 @@
 
   var SUPABASE_URL = 'https://qvjynsbvcbhmrzwaodyv.supabase.co';
   var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2anluc2J2Y2JobXJ6d2FvZHl2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg4MjU3MzAsImV4cCI6MjEwNDQwMTczMH0.uGn2X9HtRJ_CKwpHKT4E_z_i5d1nT7k2YXcQTeUgwcQ';
-  var WHATSAPP = '243846770619';
+  var WHATSAPP = '243846696889';
 
   var copy = document.getElementById('copy');
   if (copy) copy.textContent = '© ' + new Date().getFullYear() + ' Abahz Inc. Tous droits réservés.';
