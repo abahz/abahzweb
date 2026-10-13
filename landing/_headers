@@ -1,0 +1,21 @@
+# En-têtes HTTP pour Netlify et Cloudflare Pages (landing page).
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=()
+  Cache-Control: no-cache
+
+# Service worker de retrait de l'ancienne app : toujours relu.
+/sw.js
+  Cache-Control: no-cache, no-store
+
+/icons/*
+  Cache-Control: public, max-age=604800
+
+# Application Android : téléchargée comme fichier, jamais affichée.
+/abahz.apk
+  Content-Type: application/vnd.android.package-archive
+  Content-Disposition: attachment; filename="abahz.apk"
+  Cache-Control: public, max-age=3600
