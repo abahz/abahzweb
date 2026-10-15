@@ -1,0 +1,4 @@
+# Netlify publie la landing page telle quelle, sans étape de build.
+[build]
+  publish = "landing"
+  command = ""
