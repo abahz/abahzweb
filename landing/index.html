@@ -7,7 +7,7 @@
         content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'self'">
   <meta name="theme-color" content="#4355b9">
   <title>ABAHZ — Votre boutique dans votre téléphone</title>
-  <meta name="description" content="Ventes, stock, dettes clients et dépenses dans votre téléphone, même sans connexion. Sachez chaque soir combien votre boutique a gagné. Application Android gratuite à télécharger.">
+  <meta name="description" content="Ventes, stock, dettes clients et dépenses dans votre téléphone, même sans connexion. Sachez chaque soir combien votre boutique a gagné. Application gratuite sur Google Play et Windows.">
   <meta property="og:title" content="ABAHZ — Votre boutique dans votre téléphone">
   <meta property="og:description" content="Fini le cahier : ventes, stock et dettes clients sous contrôle, même sans internet.">
   <meta property="og:image" content="icons/logo.webp">
@@ -23,7 +23,7 @@
   <a class="brand" href="#top" aria-label="ABAHZ, accueil">
     <img src="icons/logo.webp" alt="" width="36" height="36"><span>ABAHZ</span>
   </a>
-  <a class="btn btn-sm btn-primary" href="abahz.apk" download data-track="apk-nav">Installer</a>
+  <a class="btn btn-sm btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-nav">Installer</a>
 </header>
 
 <main id="top">
@@ -37,14 +37,15 @@
         <p class="lead">Ventes, stock, dettes clients et dépenses au même endroit, <strong>même sans connexion</strong>. Chaque soir, vous savez combien vous avez gagné, sans ouvrir le cahier.</p>
 
         <div class="cta-row">
-          <a class="btn btn-lg btn-primary" href="abahz.apk" download data-track="apk-hero">
+          <a class="btn btn-lg btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-hero">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-            Installer l'app Android
+            Installer depuis Google Play
           </a>
           <a class="btn btn-lg btn-ghost" href="#precurseur">Devenir précurseur</a>
         </div>
         <ul class="trust">
           <li>Gratuit à télécharger</li>
+          <li>Aussi sur ordinateur Windows</li>
           <li>Marche sans internet</li>
           <li>Prix en FC</li>
         </ul>
@@ -134,21 +135,27 @@
     </div>
   </section>
 
-  <!-- 5. Installation de l'APK : hors Play Store, il faut guider. -->
+  <!-- 5. Installation : Google Play sur téléphone, MSI sur ordinateur. -->
   <section class="install" id="installer">
     <div class="wrap">
       <h2 class="center">Installez en 1 minute</h2>
       <ol class="steps">
-        <li><span>1</span><div><b>Téléchargez</b> le fichier <code>abahz.apk</code> (3,5 Mo).</div></li>
-        <li><span>2</span><div><b>Ouvrez-le</b> depuis vos téléchargements. Si Android le demande, autorisez « Installer des applications inconnues ».</div></li>
+        <li><span>1</span><div><b>Ouvrez Google Play</b> avec le bouton ci-dessous.</div></li>
+        <li><span>2</span><div><b>Appuyez sur « Installer »</b> : l'application se met ensuite à jour toute seule.</div></li>
         <li><span>3</span><div><b>Créez votre boutique</b> et faites votre première vente.</div></li>
       </ol>
       <div class="center">
-        <a class="btn btn-lg btn-primary" href="abahz.apk" download data-track="apk-steps">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-          Télécharger ABAHZ
-        </a>
-        <p class="muted small">Android 8 ou plus récent · iPhone : laissez votre numéro ci-dessous.</p>
+        <div class="cta-row cta-center">
+          <a class="btn btn-lg btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-steps">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+            Google Play
+          </a>
+          <a class="btn btn-lg btn-ghost" href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi" data-track="msi-steps">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+            Version Windows
+          </a>
+        </div>
+        <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 120 Mo) · iPhone : laissez votre numéro ci-dessous.</p>
       </div>
     </div>
   </section>
@@ -189,7 +196,7 @@
       <details><summary>Faut-il internet en permanence ?</summary><p>Non. ABAHZ fonctionne hors ligne. La connexion sert seulement à sauvegarder et à synchroniser vos appareils.</p></details>
       <details><summary>Mon téléphone est ancien, ça marche ?</summary><p>Oui, l'application est conçue pour les téléphones Android d'entrée de gamme (Android 8 et plus).</p></details>
       <details><summary>Je peux l'utiliser avec mes vendeurs ?</summary><p>Oui. Créez un compte caissier pour chaque vendeur : il encaisse, vous gardez le contrôle du stock, des dépenses et des chiffres.</p></details>
-      <details><summary>Pourquoi l'app n'est pas sur le Play Store ?</summary><p>Elle y arrive bientôt. En attendant, le fichier téléchargé ici est la version officielle d'ABAHZ.</p></details>
+      <details><summary>Existe-t-il une version pour ordinateur ?</summary><p>Oui. Téléchargez <a href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi">ABAHZ pour Windows</a>, puis ouvrez le fichier <code>Abahz.msi</code> pour l'installer. Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur « Informations complémentaires » puis « Exécuter quand même ».</p></details>
       <details><summary>J'ai besoin d'aide pour démarrer</summary><p>Écrivez-nous sur WhatsApp, on vous accompagne pas à pas.</p></details>
     </div>
   </section>
@@ -215,7 +222,7 @@
 
 <!-- Barre d'action fixe sur mobile. -->
 <div class="sticky" id="sticky">
-  <a class="btn btn-primary" href="abahz.apk" download data-track="apk-sticky">Installer</a>
+  <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-sticky">Installer</a>
   <a class="btn btn-accent" href="#precurseur">Précurseur</a>
 </div>
 

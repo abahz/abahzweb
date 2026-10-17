@@ -1,1 +1,4 @@
 .netlify/
+
+# Installateur Windows : trop lourd pour git (>100 Mo), publié en Release GitHub.
+*.msi
