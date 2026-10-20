@@ -130,7 +130,7 @@
   <section class="faq">
     <div class="wrap narrow">
       <h2 class="center">Comment commander ?</h2>
-      <details><summary>Comment se passe la commande ?</summary><p>Ajoutez les produits au panier, puis appuyez sur « Commander sur WhatsApp ». Votre liste nous arrive sur WhatsApp ; nous vous confirmons la disponibilité et la livraison.</p></details>
+      <details><summary>Comment se passe la commande ?</summary><p>Ajoutez les produits au panier, indiquez votre nom et votre adresse de livraison, puis appuyez sur « Commander sur WhatsApp ». Votre commande nous arrive sur WhatsApp ; nous vous confirmons la disponibilité et la livraison.</p></details>
             <details><summary>Le matériel marche-t-il avec ABAHZ ?</summary><p>Oui. L'imprimante thermique et le POS complet fonctionnent avec l'application ABAHZ ; avec l'imprimante, l'application est offerte.</p></details>
       <details><summary>Pouvez-vous installer les caméras ?</summary><p>Oui, sur demande. Dites-nous où se trouve votre boutique ou votre dépôt dans le message WhatsApp.</p></details>
     </div>
@@ -173,10 +173,10 @@
   <p class="cart-empty muted" id="cart-empty">Votre panier est vide. Ajoutez un produit pour commander.</p>
   <form class="cart-foot lead-form" id="order" novalidate>
     <div class="cart-total"><span>Total</span><b data-cart-total>0&nbsp;$</b></div>
-    <label for="order-name">Votre nom ou votre boutique <small>(facultatif)</small></label>
-    <input id="order-name" name="name" type="text" autocomplete="organization" maxlength="80" placeholder="Ex. : Boutique Neema">
-    <label for="order-city">Ville de livraison <small>(facultatif)</small></label>
-    <input id="order-city" name="city" type="text" autocomplete="address-level2" maxlength="60" placeholder="Ex. : Beni">
+    <label for="order-name">Votre nom</label>
+    <input id="order-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Ex. : Neema Kavira" required>
+    <label for="order-address">Adresse de livraison <small>(avenue, quartier, ville)</small></label>
+    <input id="order-address" name="address" type="text" autocomplete="street-address" maxlength="160" placeholder="Ex. : 12, Av. Semuliki, Q. Tamende, Beni" required>
     <button class="btn btn-lg btn-accent" type="submit">Commander sur WhatsApp</button>
     <p id="order-msg" class="lead-msg" role="status" aria-live="polite"></p>
   </form>

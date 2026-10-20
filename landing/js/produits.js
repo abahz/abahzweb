@@ -128,13 +128,32 @@
     e.preventDefault();
     var ls = lines();
     if (!ls.length) return;
-    var who = document.getElementById('order-name').value.trim().slice(0, 80);
-    var city = document.getElementById('order-city').value.trim().slice(0, 60);
+    // Nom et adresse obligatoires : sans eux, la commande ne peut pas être livrée.
+    var nameInput = document.getElementById('order-name');
+    var addrInput = document.getElementById('order-address');
+    var who = nameInput.value.trim().slice(0, 80);
+    var addr = addrInput.value.trim().slice(0, 160);
+    nameInput.removeAttribute('aria-invalid');
+    addrInput.removeAttribute('aria-invalid');
+    if (who.length < 2) {
+      nameInput.setAttribute('aria-invalid', 'true');
+      msg.textContent = 'Indiquez votre nom pour commander.';
+      msg.className = 'lead-msg err';
+      nameInput.focus();
+      return;
+    }
+    if (addr.length < 5) {
+      addrInput.setAttribute('aria-invalid', 'true');
+      msg.textContent = 'Indiquez votre adresse de livraison (avenue, quartier, ville).';
+      msg.className = 'lead-msg err';
+      addrInput.focus();
+      return;
+    }
     var text = 'Bonjour ABAHZ, je veux commander :\n' +
       ls.map(function (l) { return '• ' + l.qty + ' × ' + l.name + ' (' + money(l.price * l.qty) + ')'; }).join('\n') +
       '\nTotal : ' + money(total()) +
-      (who ? '\nNom / boutique : ' + who : '') +
-      (city ? '\nVille de livraison : ' + city : '');
+      '\nNom du client : ' + who +
+      '\nAdresse de livraison : ' + addr;
     msg.textContent = 'Nous ouvrons WhatsApp : appuyez sur « Envoyer » pour passer la commande.';
     msg.className = 'lead-msg ok';
     setTimeout(function () {
