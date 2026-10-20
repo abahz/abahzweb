@@ -1,13 +1,10 @@
-// Landing ABAHZ : inscription des précurseurs (numéro WhatsApp) et barre d'action mobile.
-// Le numéro part dans la table Supabase `precurseurs` (insertion seule, voir
-// supabase/precurseurs.sql). Si l'envoi échoue, on ouvre WhatsApp avec un
-// message prérempli : aucun contact n'est perdu.
+// Landing ABAHZ : demande d'accès gratuit (Gmail + numéro WhatsApp) et barre d'action mobile.
+// Pas de serveur : le formulaire ouvre WhatsApp vers l'administration avec un message prérempli.
+// L'administration active l'accès Google Play avec l'adresse Gmail, puis envoie le lien sur WhatsApp.
 
 (function () {
   'use strict';
 
-  var SUPABASE_URL = 'https://qvjynsbvcbhmrzwaodyv.supabase.co';
-  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2anluc2J2Y2JobXJ6d2FvZHl2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg4MjU3MzAsImV4cCI6MjEwNDQwMTczMH0.uGn2X9HtRJ_CKwpHKT4E_z_i5d1nT7k2YXcQTeUgwcQ';
   var WHATSAPP = '243846696889';
 
   var copy = document.getElementById('copy');
@@ -35,22 +32,39 @@
     return d.length >= 8 && d.length <= 15 ? d : null;
   }
 
+  // Adresse e-mail en minuscules, format simple ; null si invalide.
+  function normalizeEmail(raw) {
+    var e = String(raw || '').trim().toLowerCase();
+    return e.length <= 254 && /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/.test(e) ? e : null;
+  }
+
   var form = document.getElementById('lead');
   var msg = document.getElementById('lead-msg');
   var phone = document.getElementById('phone');
+  var email = document.getElementById('email');
   var name = document.getElementById('name');
 
   function say(text, kind) { msg.textContent = text; msg.className = 'lead-msg ' + (kind || ''); }
 
-  function whatsappFallback(num, who) {
-    var text = 'Bonjour ABAHZ, je veux devenir précurseur. Mon numéro WhatsApp : +' + num + (who ? ' (' + who + ')' : '');
+  function sendWhatsapp(mail, num, who) {
+    var text = 'Bonjour ABAHZ, je veux l’accès gratuit à l’application de gestion.\n' +
+      'Mon Gmail : ' + mail + '\n' +
+      'Mon numéro WhatsApp : +' + num + (who ? '\nMa boutique : ' + who : '');
     window.location.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text);
   }
 
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
+    var mail = normalizeEmail(email.value);
     var num = normalize(phone.value);
     var who = name.value.trim().slice(0, 80);
+    if (!mail) {
+      email.setAttribute('aria-invalid', 'true');
+      say('Adresse Gmail invalide. Exemple : neema@gmail.com', 'err');
+      email.focus();
+      return;
+    }
+    email.removeAttribute('aria-invalid');
     if (!num) {
       phone.setAttribute('aria-invalid', 'true');
       say('Numéro invalide. Exemple : 97 123 4567', 'err');
@@ -58,36 +72,13 @@
       return;
     }
     phone.removeAttribute('aria-invalid');
-    var btn = form.querySelector('button');
-    btn.disabled = true;
-    say('Envoi…');
-
-    fetch(SUPABASE_URL + '/rest/v1/precurseurs', {
-      method: 'POST',
-      headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal'
-      },
-      body: JSON.stringify({ whatsapp: num, nom: who || null, source: location.hostname || null })
-    }).then(function (res) {
-      // 409 : numéro déjà inscrit, c'est aussi une réussite pour le visiteur.
-      if (res.ok || res.status === 409) {
-        form.reset();
-        say('Merci ! Vous êtes sur la liste. Nous vous écrirons sur WhatsApp au +' + num + '.', 'ok');
-      } else {
-        throw new Error('HTTP ' + res.status);
-      }
-    }).catch(function () {
-      say('Connexion difficile : nous ouvrons WhatsApp pour finaliser.', 'err');
-      setTimeout(function () { whatsappFallback(num, who); }, 900);
-    }).then(function () { btn.disabled = false; });
+    say('Nous ouvrons WhatsApp : appuyez sur « Envoyer » pour réserver votre place.', 'ok');
+    setTimeout(function () { sendWhatsapp(mail, num, who); }, 700);
   });
 
   // Barre mobile : masquée quand le formulaire est à l'écran (elle le recouvrirait).
   var sticky = document.getElementById('sticky');
-  var early = document.getElementById('precurseur');
+  var early = document.getElementById('acces');
   if (sticky && early && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       sticky.classList.toggle('hide', entries[0].isIntersecting);

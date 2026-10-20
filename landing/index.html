@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'none'; form-action 'self'">
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'self'">
   <meta name="theme-color" content="#4355b9">
   <title>ABAHZ — Votre boutique dans votre téléphone</title>
-  <meta name="description" content="Ventes, stock, dettes clients et dépenses dans votre téléphone, même sans connexion. Sachez chaque soir combien votre boutique a gagné. Application gratuite sur Google Play et Windows.">
+  <meta name="description" content="Ventes, stock, dettes clients et dépenses dans votre téléphone, même sans connexion. Sachez chaque soir combien votre boutique a gagné. Utilisation gratuite pour les premiers commerçants inscrits, sur Android et Windows.">
   <meta property="og:title" content="ABAHZ — Votre boutique dans votre téléphone">
   <meta property="og:description" content="Fini le cahier : ventes, stock et dettes clients sous contrôle, même sans internet.">
   <meta property="og:image" content="icons/logo.webp">
@@ -23,7 +23,7 @@
   <a class="brand" href="#top" aria-label="ABAHZ, accueil">
     <img src="icons/logo.webp" alt="" width="36" height="36"><span>ABAHZ</span>
   </a>
-  <a class="btn btn-sm btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-nav">Installer</a>
+  <a class="btn btn-sm btn-primary" href="#acces" data-track="acces-nav">Accès gratuit</a>
 </header>
 
 <main id="top">
@@ -37,14 +37,11 @@
         <p class="lead">Ventes, stock, dettes clients et dépenses au même endroit, <strong>même sans connexion</strong>. Chaque soir, vous savez combien vous avez gagné, sans ouvrir le cahier.</p>
 
         <div class="cta-row">
-          <a class="btn btn-lg btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-hero">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-            Installer depuis Google Play
-          </a>
-          <a class="btn btn-lg btn-ghost" href="#precurseur">Devenir précurseur</a>
+          <a class="btn btn-lg btn-primary" href="#acces" data-track="acces-hero">Obtenir l'accès gratuit</a>
+          <a class="btn btn-lg btn-ghost" href="#installer">Version Windows</a>
         </div>
         <ul class="trust">
-          <li>Gratuit à télécharger</li>
+          <li>Gratuit pour les premiers inscrits</li>
           <li>Aussi sur ordinateur Windows</li>
           <li>Marche sans internet</li>
           <li>Prix en FC</li>
@@ -135,39 +132,37 @@
     </div>
   </section>
 
-  <!-- 5. Installation : Google Play sur téléphone, MSI sur ordinateur. -->
+  <!-- 5. Installation : Android sur inscription (Gmail + WhatsApp), MSI sur ordinateur. -->
   <section class="install" id="installer">
     <div class="wrap">
-      <h2 class="center">Installez en 1 minute</h2>
+      <h2 class="center">Commencez en 3 étapes</h2>
       <ol class="steps">
-        <li><span>1</span><div><b>Ouvrez Google Play</b> avec le bouton ci-dessous.</div></li>
-        <li><span>2</span><div><b>Appuyez sur « Installer »</b> : l'application se met ensuite à jour toute seule.</div></li>
-        <li><span>3</span><div><b>Créez votre boutique</b> et faites votre première vente.</div></li>
+        <li><span>1</span><div><b>Inscrivez-vous</b> avec votre adresse Gmail et votre numéro WhatsApp.</div></li>
+        <li><span>2</span><div><b>Recevez votre lien</b> d'installation sur WhatsApp.</div></li>
+        <li><span>3</span><div><b>Installez depuis Google Play</b>, créez votre boutique et faites votre première vente.</div></li>
       </ol>
       <div class="center">
         <div class="cta-row cta-center">
-          <a class="btn btn-lg btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-steps">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-            Google Play
-          </a>
+          <a class="btn btn-lg btn-primary" href="#acces" data-track="acces-steps">Obtenir l'accès gratuit</a>
           <a class="btn btn-lg btn-ghost" href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi" data-track="msi-steps">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
             Version Windows
           </a>
         </div>
-        <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 120 Mo) · iPhone : laissez votre numéro ci-dessous.</p>
+        <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 120 Mo) · iPhone : inscrivez-vous ci-dessous, nous vous préviendrons.</p>
       </div>
     </div>
   </section>
 
-  <!-- 6. Liste des précurseurs (numéro WhatsApp). -->
-  <section class="early" id="precurseur">
+  <!-- 6. Inscription à l'accès gratuit (Gmail + WhatsApp). -->
+  <section class="early" id="acces">
     <div class="wrap early-grid">
       <div>
         <p class="eyebrow light">Places limitées</p>
-        <h2>Pas encore prêt ? Devenez précurseur.</h2>
-        <p>Laissez votre numéro WhatsApp. Les premiers commerçants inscrits reçoivent :</p>
+        <h2>Utilisez ABAHZ gratuitement.</h2>
+        <p>Laissez votre adresse Gmail et votre numéro WhatsApp. Les premiers commerçants inscrits reçoivent :</p>
         <ul class="perks">
+          <li>L'utilisation gratuite de l'application de gestion</li>
           <li>Un accompagnement personnel pour installer et démarrer</li>
           <li>Les nouveautés en avant-première</li>
           <li>Une voix directe pour décider des prochaines fonctions</li>
@@ -175,6 +170,8 @@
       </div>
 
       <form id="lead" class="lead-form" novalidate>
+        <label for="email">Votre adresse Gmail <small>(celle de Google Play sur votre téléphone)</small></label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="Ex. : neema@gmail.com" required>
         <label for="phone">Votre numéro WhatsApp</label>
         <div class="phone-field">
           <span>+243</span>
@@ -182,9 +179,9 @@
         </div>
         <label for="name">Votre prénom ou votre boutique <small>(facultatif)</small></label>
         <input id="name" name="name" type="text" autocomplete="organization" maxlength="80" placeholder="Ex. : Boutique Neema, Béni">
-        <button class="btn btn-lg btn-accent" type="submit">Je deviens précurseur</button>
+        <button class="btn btn-lg btn-accent" type="submit">Je veux l'accès gratuit</button>
         <p id="lead-msg" class="lead-msg" role="status" aria-live="polite"></p>
-        <p class="muted small">Pas de spam. Juste un message quand votre accès est prêt.</p>
+        <p class="muted small">Votre demande part sur WhatsApp. Nous vous répondons avec votre lien d'installation.</p>
       </form>
     </div>
   </section>
@@ -193,6 +190,7 @@
   <section class="faq">
     <div class="wrap narrow">
       <h2 class="center">Questions fréquentes</h2>
+      <details><summary>Pourquoi mon adresse Gmail ?</summary><p>C'est elle qui active votre accès gratuit sur Google Play. Utilisez l'adresse Gmail déjà connectée à Google Play sur votre téléphone, sinon le lien d'installation ne s'ouvrira pas.</p></details>
       <details><summary>Faut-il internet en permanence ?</summary><p>Non. ABAHZ fonctionne hors ligne. La connexion sert seulement à sauvegarder et à synchroniser vos appareils.</p></details>
       <details><summary>Mon téléphone est ancien, ça marche ?</summary><p>Oui, l'application est conçue pour les téléphones Android d'entrée de gamme (Android 8 et plus).</p></details>
       <details><summary>Je peux l'utiliser avec mes vendeurs ?</summary><p>Oui. Créez un compte caissier pour chaque vendeur : il encaisse, vous gardez le contrôle du stock, des dépenses et des chiffres.</p></details>
@@ -222,8 +220,7 @@
 
 <!-- Barre d'action fixe sur mobile. -->
 <div class="sticky" id="sticky">
-  <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.abahz.abahz" rel="noopener" target="_blank" data-track="play-sticky">Installer</a>
-  <a class="btn btn-accent" href="#precurseur">Précurseur</a>
+  <a class="btn btn-accent" href="#acces" data-track="acces-sticky">Accès gratuit</a>
 </div>
 
 </body>
