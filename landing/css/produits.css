@@ -36,15 +36,9 @@
 .buy .btn { min-height: 44px; }
 .buy .btn.added { background: var(--success); }
 
-/* Illustrations : SVG en trait, couleurs par catégorie */
-.art { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; padding: 14px; color: #1b1b21; }
-.art svg { width: auto; height: 100%; max-width: 100%; stroke-width: 2.2; }
-.art .f1 { fill: #fff; }
-.art .f2 { fill: #dee0ff; }
-.art .f3 { fill: #f5a524; }
-.art-pos { background: linear-gradient(135deg, #dee0ff, #c3c9ff); }
-.art-print { background: linear-gradient(135deg, #ffe7c7, #ffd29a); }
-.art-cam { background: linear-gradient(135deg, #d6f2dc, #b4e4bf); }
+/* Photos produits : fond blanc comme les photos, cadrage sans déformation */
+.art { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; padding: 12px; background: #fff; border-bottom: 1px solid var(--line); }
+.art img { width: 100%; height: 100%; object-fit: contain; }
 .badge { position: absolute; top: 12px; left: 12px; background: #1b1b21; color: #fff; font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
 
 .local-cta { margin-top: 28px; }
