@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'self'">
+  <meta name="theme-color" content="#4355b9">
+  <title>Produits ABAHZ — Imprimantes thermiques, caméras et POS</title>
+  <meta name="description" content="Imprimantes de tickets thermiques, caméras de surveillance et caisses POS complètes avec l'application ABAHZ. Commandez sur WhatsApp, à Beni et partout en RDC.">
+  <meta property="og:title" content="Produits ABAHZ — Imprimantes, caméras et POS">
+  <meta property="og:description" content="Équipez votre boutique : imprimantes thermiques, caméras de surveillance et caisses POS complètes. Commande sur WhatsApp.">
+  <meta property="og:image" content="icons/logo.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="icons/logo.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="icons/logo.webp">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/produits.css">
+  <script src="js/produits.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="ABAHZ, accueil">
+    <img src="icons/logo.webp" alt="" width="36" height="36"><span>ABAHZ</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html">Application</a>
+    <a href="produits.html" aria-current="page">Produits</a>
+    <button class="btn btn-sm btn-primary cart-btn" type="button" data-open-cart aria-label="Ouvrir le panier">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h11L21 7H6.2M9 20h.01M18 20h.01"/></svg>
+      <span>Panier</span><b class="cart-count" data-cart-count>0</b>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 1. Promesse de la boutique de matériel. -->
+  <section class="shop-hero">
+    <div class="wrap">
+      <p class="eyebrow">Matériel pour commerçants</p>
+      <h1>Équipez votre boutique, <span class="hl">tout est prêt à l'emploi.</span></h1>
+      <p class="lead">Imprimantes de tickets, caméras de surveillance et caisses POS complètes, compatibles avec l'application ABAHZ. Choisissez, ajoutez au panier, commandez sur WhatsApp.</p>
+      <ul class="trust">
+        <li>Commande sur WhatsApp</li>
+        <li>Compatible ABAHZ</li>
+        <li>Conseil et installation sur demande</li>
+        <li>Prix en&nbsp;$</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. Catalogue filtrable par catégorie. -->
+  <section class="catalog" id="catalogue">
+    <div class="wrap">
+      <div class="products" id="products">
+
+        <article class="product" data-id="imprimante-thermique" data-name="Imprimante thermique + logiciel ABAHZ" data-price="50">
+          <div class="art art-print">
+            <svg viewBox="0 0 120 90" aria-hidden="true"><path class="f2" d="M40 6h40v26H40z"/><path d="M46 14h28M46 21h20"/><rect class="f1" x="20" y="30" width="80" height="48" rx="6"/><path d="M30 38h60"/><rect class="f3" x="76" y="62" width="14" height="6" rx="2"/><circle cx="32" cy="65" r="3"/></svg>
+            <span class="badge">Logiciel gratuit</span>
+          </div>
+          <div class="product-body">
+            <p class="cat-label">Imprimante thermique</p>
+            <h3>Imprimante thermique + logiciel ABAHZ</h3>
+            <ul class="specs">
+              <li>Application de gestion ABAHZ offerte</li>
+              <li>Un ticket imprimé à chaque vente</li>
+              <li>Sans encre : papier thermique</li>
+            </ul>
+            <div class="buy"><span class="price">50&nbsp;$</span><button type="button" class="btn btn-primary" data-add>Ajouter</button></div>
+          </div>
+        </article>
+
+        <article class="product featured" data-id="pos-complet" data-name="POS complet" data-price="350">
+          <div class="art art-pos">
+            <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="f1" x="30" y="10" width="60" height="42" rx="4"/><rect class="f2" x="35" y="15" width="50" height="32" rx="2"/><path d="M60 52v10M44 66h32"/><rect class="f1" x="10" y="70" width="100" height="14" rx="3"/><path d="M50 77h20"/><rect class="f3" x="92" y="44" width="18" height="22" rx="3"/><path d="M96 44v-6h10v6"/></svg>
+            <span class="badge">Le plus complet</span>
+          </div>
+          <div class="product-body">
+            <p class="cat-label">POS complet</p>
+            <h3>POS complet</h3>
+            <ul class="specs">
+              <li>Tout le nécessaire pour encaisser au comptoir</li>
+              <li>Fonctionne avec l'application ABAHZ</li>
+              <li>Composition détaillée confirmée sur WhatsApp</li>
+            </ul>
+            <div class="buy"><span class="price">350&nbsp;$</span><button type="button" class="btn btn-primary" data-add>Ajouter</button></div>
+          </div>
+        </article>
+
+        <article class="product" data-id="camera-surveillance" data-name="Caméra de surveillance" data-price="75">
+          <div class="art art-cam">
+            <svg viewBox="0 0 120 90" aria-hidden="true"><path d="M14 20v30M14 35h22"/><path class="f1" d="M36 24l60-6 10 18-62 14z"/><circle class="f3" cx="98" cy="30" r="5"/><path class="f2" d="M30 22l70-8 2 6-70 8z"/><path d="M56 48v22"/></svg>
+          </div>
+          <div class="product-body">
+            <p class="cat-label">Caméra de surveillance</p>
+            <h3>Caméra de surveillance</h3>
+            <ul class="specs">
+              <li>Surveillez votre boutique ou votre dépôt</li>
+              <li>Installation sur demande</li>
+            </ul>
+            <div class="buy"><span class="price">75&nbsp;$</span><button type="button" class="btn btn-primary" data-add>Ajouter</button></div>
+          </div>
+        </article>
+
+      </div>
+      <p class="muted small center">Prix en dollars. Disponibilité et livraison confirmées sur WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- 3. Lien avec l'application : le matériel sert ABAHZ. -->
+  <section class="local">
+    <div class="wrap">
+      <h2>Le matériel et l'application, ensemble.</h2>
+      <ul class="local-list">
+        <li><b>Ticket à chaque vente.</b> L'imprimante se connecte à ABAHZ : le client repart avec son reçu.</li>
+        <li><b>Logiciel offert.</b> Avec l'imprimante thermique, l'application de gestion ABAHZ est gratuite.</li>
+        <li><b>Surveillez la caisse.</b> La caméra montre le comptoir, ABAHZ montre les chiffres.</li>
+        <li><b>On vous aide à démarrer.</b> Conseil pour choisir, installation et réglage sur demande.</li>
+      </ul>
+      <div class="center local-cta">
+        <a class="btn btn-lg btn-accent" href="index.html#acces">Découvrir l'application ABAHZ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Questions fréquentes sur la commande. -->
+  <section class="faq">
+    <div class="wrap narrow">
+      <h2 class="center">Comment commander ?</h2>
+      <details><summary>Comment se passe la commande ?</summary><p>Ajoutez les produits au panier, puis appuyez sur « Commander sur WhatsApp ». Votre liste nous arrive sur WhatsApp ; nous vous confirmons la disponibilité et la livraison.</p></details>
+            <details><summary>Le matériel marche-t-il avec ABAHZ ?</summary><p>Oui. L'imprimante thermique et le POS complet fonctionnent avec l'application ABAHZ ; avec l'imprimante, l'application est offerte.</p></details>
+      <details><summary>Pouvez-vous installer les caméras ?</summary><p>Oui, sur demande. Dites-nous où se trouve votre boutique ou votre dépôt dans le message WhatsApp.</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <div class="brand"><img src="icons/logo.webp" alt="" width="28" height="28"><span>ABAHZ</span></div>
+    <a class="wa-link" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question%20sur%20vos%20produits." rel="noopener" target="_blank">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/></svg>
+      Support WhatsApp
+    </a>
+  </div>
+  <div class="wrap admin-contact">
+    <span class="muted">Administration :</span>
+    <a href="mailto:abahzgoup@gmail.com">abahzgoup@gmail.com</a>
+    <a href="https://wa.me/243846696889" rel="noopener" target="_blank">WhatsApp +243 846 696 889</a>
+  </div>
+  <address class="wrap admin-address muted">62, Av. Semuliki, Quartier Tamende, Commune Mulekera, Ville de Beni, Nord-Kivu / RDC</address>
+  <p class="muted small center" id="copy">© Abahz Inc.</p>
+</footer>
+
+<!-- Barre panier fixe sur mobile. -->
+<div class="sticky" id="sticky">
+  <button class="btn btn-accent" type="button" data-open-cart>Voir le panier · <span data-cart-total>0&nbsp;$</span></button>
+</div>
+
+<!-- Panier : tiroir latéral, commande envoyée sur WhatsApp. -->
+<div class="cart-backdrop" id="cart-backdrop" hidden></div>
+<aside class="cart" id="cart" aria-label="Panier" aria-hidden="true" tabindex="-1">
+  <div class="cart-head">
+    <h2>Votre panier</h2>
+    <button type="button" class="icon-btn" data-close-cart aria-label="Fermer le panier">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <ul class="cart-items" id="cart-items"></ul>
+  <p class="cart-empty muted" id="cart-empty">Votre panier est vide. Ajoutez un produit pour commander.</p>
+  <form class="cart-foot lead-form" id="order" novalidate>
+    <div class="cart-total"><span>Total</span><b data-cart-total>0&nbsp;$</b></div>
+    <label for="order-name">Votre nom ou votre boutique <small>(facultatif)</small></label>
+    <input id="order-name" name="name" type="text" autocomplete="organization" maxlength="80" placeholder="Ex. : Boutique Neema">
+    <label for="order-city">Ville de livraison <small>(facultatif)</small></label>
+    <input id="order-city" name="city" type="text" autocomplete="address-level2" maxlength="60" placeholder="Ex. : Beni">
+    <button class="btn btn-lg btn-accent" type="submit">Commander sur WhatsApp</button>
+    <p id="order-msg" class="lead-msg" role="status" aria-live="polite"></p>
+  </form>
+</aside>
+
+</body>
+</html>
