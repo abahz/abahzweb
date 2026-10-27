@@ -98,30 +98,8 @@ section { padding: 64px 0; }
 .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; margin: 0; list-style: none; color: var(--muted); font-size: .92rem; }
 .trust li::before { content: "✓ "; color: var(--success); font-weight: 800; }
 
-/* Maquette téléphone */
-.phone {
-  width: 280px; max-width: 82vw; margin: 0 auto; padding: 12px; border-radius: 40px;
-  background: #1b1b21; box-shadow: var(--shadow), 0 30px 60px rgba(30, 40, 110, .25); transform: rotate(2deg);
-}
-.phone-screen { background: #fbf8ff; color: #1b1b21; border-radius: 30px; padding: 18px 14px; display: grid; gap: 10px; font-size: 13px; }
-.ph-top { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; }
-.ph-top b { color: #4355b9; letter-spacing: .05em; }
-.ph-top small { grid-column: 2; color: #767680; font-size: 11px; margin-top: -2px; }
-.ph-dot { grid-row: span 2; width: 28px; height: 28px; border-radius: 50%; background: #4355b9; }
-.ph-card { background: #fff; border-radius: 14px; padding: 10px 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, .08); display: grid; }
-.ph-card small { color: #767680; font-size: 11px; }
-.ph-main { background: #4355b9; color: #fff; }
-.ph-main small { color: #dee0ff; }
-.ph-main strong { font-size: 22px; }
-.ph-up { color: #a3f5a8; font-size: 11px; font-weight: 600; }
-.ph-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.ph-row b { color: #1b6d2f; }
-.ph-warn b { color: #9a4600; }
-.ph-bars { display: flex; align-items: flex-end; gap: 6px; height: 64px; padding: 8px 12px; background: #fff; border-radius: 14px; }
-.ph-bars i { flex: 1; height: 50%; background: #dee0ff; border-radius: 4px 4px 0 0; }
-.ph-bars i:last-child, .ph-bars i:nth-child(6) { background: #4355b9; }
-.ph-alert { background: #ffdcbe; color: #2c1600; border-radius: 12px; padding: 8px 10px; font-size: 11.5px; font-weight: 600; }
-.ph-btn { background: #8b5000; color: #fff; text-align: center; border-radius: 999px; padding: 10px; font-weight: 700; }
+/* Capture de l'application */
+.phone { display: block; width: 300px; max-width: 78vw; height: auto; margin: 0 auto; filter: drop-shadow(0 30px 40px rgba(30, 40, 110, .3)); transform: rotate(2deg); }
 
 /* Problème */
 .pain { background: var(--surface); border-block: 1px solid var(--line); }
@@ -209,8 +187,6 @@ section { padding: 64px 0; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
-.ph-bars i:nth-child(1) { height: 40%; } .ph-bars i:nth-child(2) { height: 65%; } .ph-bars i:nth-child(4) { height: 80%; }
-.ph-bars i:nth-child(5) { height: 60%; } .ph-bars i:nth-child(6) { height: 95%; } .ph-bars i:nth-child(7) { height: 75%; }
 
 /* Contacts de l'administration (pied de page) */
 .admin-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-bottom: 12px; font-size: .95rem; }
