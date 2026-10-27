@@ -2,3 +2,9 @@
 [build]
   publish = "landing"
   command = ""
+
+# L'ancienne page Produits fait maintenant partie de la page d'accueil.
+[[redirects]]
+  from = "/produits.html"
+  to = "/#produits"
+  status = 301
