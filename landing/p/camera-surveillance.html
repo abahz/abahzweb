@@ -26,24 +26,51 @@
 
 <header class="nav">
   <a class="brand" href="../index.html" aria-label="ABAHZ, accueil">
-    <img src="../icons/logo.webp" alt="" width="36" height="36"><span>ABAHZ</span>
+    <img src="../icons/logo.webp" alt="" width="32" height="32"><span>ABAHZ</span>
   </a>
   <div class="nav-right">
-    <a class="nav-link" href="../index.html#produits">Tous les produits</a>
+    <a class="nav-link nav-back" href="../index.html#produits">← Tous les produits</a>
   </div>
 </header>
 
+<!-- Page ouverte depuis le lien envoyé sur WhatsApp : photo, prix, commande. -->
 <main class="product-page">
-  <div class="wrap">
-    <article class="product">
-      <div class="art"><img src="../camera.webp" alt="Caméra de surveillance" width="250" height="250"></div>
-      <div class="product-body">
-        <h1>Caméra de surveillance</h1>
-        <div class="buy"><span class="price">75&nbsp;$</span><a class="btn btn-primary" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20je%20veux%20commander%20%3A%20Cam%C3%A9ra%20de%20surveillance%20(75%20%24)%0Ahttps%3A%2F%2Fabahz.com%2Fp%2Fcamera-surveillance.html" rel="noopener" target="_blank">Commander sur WhatsApp</a></div>
-      </div>
-    </article>
+  <div class="wrap pp-grid">
+    <div class="art pp-art">
+      <img src="../camera.webp" alt="Caméra de surveillance" width="250" height="250">
+    </div>
+    <div class="pp-info">
+      <p class="cat-label">Caméra de surveillance</p>
+      <h1>Caméra de surveillance</h1>
+      <p class="price">75&nbsp;$</p>
+      <ul class="specs">
+          <li>Surveillez votre boutique ou votre dépôt</li>
+          <li>Installation sur demande</li>
+      </ul>
+      <a class="btn btn-lg btn-primary pp-cta" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20je%20veux%20commander%20%3A%20Cam%C3%A9ra%20de%20surveillance%20(75%20%24)%0Ahttps%3A%2F%2Fabahz.com%2Fp%2Fcamera-surveillance.html" rel="noopener" target="_blank">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/></svg>
+        Commander sur WhatsApp
+      </a>
+      <ol class="pp-how">
+        <li>WhatsApp s'ouvre avec le produit : appuyez sur « Envoyer ».</li>
+        <li>Indiquez votre nom et votre adresse de livraison.</li>
+        <li>Nous vous confirmons la disponibilité et la livraison.</li>
+      </ol>
+      <p class="muted small">Prix en dollars. Livraison à Beni et en RDC.</p>
+    </div>
   </div>
 </main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <a class="foot-app" href="../index.html">L'application de gestion ABAHZ, gratuite pour les premiers inscrits →</a>
+    <a class="wa-link" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question." rel="noopener" target="_blank">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/></svg>
+      Une question ? WhatsApp
+    </a>
+  </div>
+  <div class="wrap"><p class="muted small">© Abahz Inc. · Beni, Nord-Kivu / RDC</p></div>
+</footer>
 
 </body>
 </html>
