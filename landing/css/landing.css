@@ -105,7 +105,7 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 /* Capture de l'application, posée sur un panneau neutre et coupée en bas */
 .shot { margin: 0; }
 .shot-frame { background: var(--panel); border-radius: var(--radius); padding: 40px 32px 0; height: 520px; overflow: hidden; display: flex; justify-content: center; }
-.phone { width: 260px; max-width: 100%; height: auto; border-radius: 28px 28px 0 0; border: 6px solid #1c1b19; border-bottom: 0; }
+.phone { width: 280px; max-width: 100%; height: auto; }
 .shot figcaption { color: var(--muted); font-size: .85rem; margin-top: 10px; }
 @media (max-width: 480px) { .shot-frame { height: 440px; padding: 28px 20px 0; } }
 
