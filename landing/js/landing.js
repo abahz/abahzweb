@@ -53,6 +53,13 @@
     window.location.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text);
   }
 
+  // Clavier mobile : « Suivant » sur Gmail puis WhatsApp passe au champ suivant au lieu d'envoyer.
+  [[email, phone], [phone, name]].forEach(function (pair) {
+    if (pair[0] && pair[1]) pair[0].addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); pair[1].focus(); }
+    });
+  });
+
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
     var mail = normalizeEmail(email.value);

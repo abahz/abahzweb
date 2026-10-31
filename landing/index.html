@@ -259,10 +259,14 @@
   <!-- 9. Inscription à l'accès gratuit (Gmail + WhatsApp), juste avant le pied de page. -->
   <section class="early" id="acces">
     <div class="wrap early-grid">
-      <div>
+      <!-- Sur mobile : titre, formulaire, puis avantages ; sur ordinateur : formulaire à droite. -->
+      <div class="early-intro">
         <p class="kicker">Places limitées</p>
         <h2>Utilisez ABAHZ gratuitement.</h2>
-        <p>Laissez votre adresse Gmail et votre numéro WhatsApp. Les premiers commerçants inscrits reçoivent :</p>
+        <p>Laissez votre adresse Gmail et votre numéro WhatsApp : nous vous envoyons votre lien d'installation.</p>
+      </div>
+      <div class="early-perks">
+        <p>Les premiers commerçants inscrits reçoivent :</p>
         <ul class="perks">
           <li>L'utilisation gratuite de l'application de gestion</li>
           <li>Un accompagnement personnel pour installer et démarrer</li>
@@ -273,14 +277,14 @@
 
       <form id="lead" class="lead-form" novalidate>
         <label for="email">Votre adresse Gmail <small>(celle de Google Play sur votre téléphone)</small></label>
-        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="Ex. : neema@gmail.com" required>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="next" maxlength="254" placeholder="Ex. : neema@gmail.com" required>
         <label for="phone">Votre numéro WhatsApp</label>
         <div class="phone-field">
           <span>+243</span>
-          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="97 123 4567" required>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="97 123 4567" required>
         </div>
         <label for="name">Votre prénom ou votre boutique <small>(facultatif)</small></label>
-        <input id="name" name="name" type="text" autocomplete="organization" maxlength="80" placeholder="Ex. : Boutique Neema, Béni">
+        <input id="name" name="name" type="text" autocomplete="organization" enterkeyhint="send" maxlength="80" placeholder="Ex. : Boutique Neema, Béni">
         <button class="btn btn-lg btn-primary" type="submit">Je veux l'accès gratuit</button>
         <p id="lead-msg" class="lead-msg" role="status" aria-live="polite"></p>
         <p class="muted small">Votre demande part sur WhatsApp. Nous vous répondons avec votre lien d'installation.</p>
