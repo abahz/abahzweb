@@ -199,6 +199,46 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   transition: transform .25s;
 }
 .sticky.hide { transform: translateY(110%); }
+.sticky { grid-template-columns: 1fr auto; align-items: center; }
+.sticky-info { display: grid; min-width: 0; line-height: 1.2; }
+.sticky-info b { font-size: .95rem; letter-spacing: .04em; }
+.sticky-info span { color: var(--muted); font-size: .82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Page d'accueil sur mobile : sections plus courtes, capture moins haute, étapes compactes */
+@media (max-width: 759px) {
+  body { font-size: 16px; }
+  section { padding: 48px 0; }
+  .hero { padding: 28px 0 48px; }
+  .hero-grid { gap: 36px; }
+  .kicker { margin-bottom: .9em; }
+  .lead { font-size: 1.05rem; }
+  .cta-row { margin: 24px 0 20px; }
+  .trust { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; font-size: .88rem; }
+  .trust li:not(:last-child)::after { content: none; }
+  .trust li { padding-left: 14px; position: relative; }
+  .trust li::before { content: "–"; position: absolute; left: 0; }
+  .shot-frame { height: 380px; padding: 28px 20px 0; }
+  .phone { width: 230px; }
+  .split { gap: 20px; }
+  .rows article, .local-list li { padding: 16px 0; }
+  .features h2 { margin-bottom: 1em; }
+  .feat { padding: 24px 0; display: grid; grid-template-columns: 36px 1fr; column-gap: 14px; }
+  .feat-ic { margin: 2px 0 0; grid-row: span 2; }
+  .feat-ic svg { width: 24px; height: 24px; }
+  .feat h3 { margin-bottom: .3em; }
+  .steps { margin-bottom: 28px; }
+  .steps li { display: grid; grid-template-columns: 40px 1fr; align-items: baseline; padding: 16px 0; border-top-width: 1px; }
+  .steps li:last-child { border-bottom: 1px solid var(--line); }
+  .steps span { font-size: 1.6rem; margin: 0; }
+  .catalog-head { margin-bottom: 24px; }
+  .products .art { aspect-ratio: 16 / 10; }
+  .product-body { padding: 16px 18px 18px; }
+  .specs { margin-bottom: 16px; }
+  .early-grid { gap: 28px; }
+  .lead-form { padding: 20px; }
+  .faq summary { padding: 16px 0; }
+  .foot-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
 @media (min-width: 760px) { .sticky { display: none; } }
 
 @media (prefers-reduced-motion: reduce) {
