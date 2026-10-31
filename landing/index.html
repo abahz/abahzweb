@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'self'">
-  <meta name="theme-color" content="#4355b9">
+  <meta name="theme-color" content="#f6f4ef">
   <title>ABAHZ — Votre boutique dans votre téléphone</title>
   <meta name="description" content="Ventes, stock, dettes clients et dépenses dans votre téléphone, avec ou sans internet, en FC ou en $. Sachez chaque soir combien votre boutique a gagné. Utilisation gratuite pour les premiers commerçants inscrits, sur Android et Windows.">
   <meta property="og:title" content="ABAHZ — Votre boutique dans votre téléphone">
@@ -24,10 +24,11 @@
 
 <header class="nav">
   <a class="brand" href="#top" aria-label="ABAHZ, accueil">
-    <img src="icons/logo.webp" alt="" width="36" height="36"><span>ABAHZ</span>
+    <img src="icons/logo.webp" alt="" width="32" height="32"><span>ABAHZ</span>
   </a>
   <div class="nav-right">
     <a class="nav-link" href="#produits">Produits</a>
+    <a class="nav-link" href="#installer">Installer</a>
     <a class="btn btn-sm btn-primary" href="#acces" data-track="acces-nav">Accès gratuit</a>
   </div>
 </header>
@@ -38,8 +39,8 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <p class="eyebrow">Pour les boutiques, dépôts et grossistes</p>
-        <h1>Votre boutique tient dans <span class="hl">votre téléphone.</span></h1>
+        <p class="kicker">Pour les boutiques, dépôts et grossistes</p>
+        <h1>Votre boutique tient dans votre téléphone.</h1>
         <p class="lead">Ventes, stock, dettes clients et dépenses au même endroit, <strong>avec ou sans internet</strong>, en FC ou en&nbsp;$. Chaque soir, vous savez combien vous avez gagné, sans ouvrir le cahier.</p>
 
         <div class="cta-row">
@@ -48,34 +49,39 @@
         </div>
         <ul class="trust">
           <li>Gratuit pour les premiers inscrits</li>
-          <li>Aussi sur ordinateur Windows</li>
-          <li>Marche avec ou sans internet</li>
-          <li>Prix en FC ou en&nbsp;$</li>
+          <li>Android et Windows</li>
+          <li>Avec ou sans internet</li>
+          <li>FC ou&nbsp;$</li>
         </ul>
       </div>
 
       <!-- Capture de l'application ABAHZ (fiche Google Play). -->
-      <img class="phone" src="app.webp" alt="Application ABAHZ : liste des produits avec stock et prix" width="666" height="1440" fetchpriority="high">
+      <figure class="shot">
+        <div class="shot-frame">
+          <img class="phone" src="app.webp" alt="Application ABAHZ : liste des produits avec stock et prix" width="666" height="1440" fetchpriority="high">
+        </div>
+        <figcaption>L'écran des produits, tel qu'il s'affiche dans l'application.</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- 2. Le problème, dans les mots du commerçant. -->
   <section class="pain">
-    <div class="wrap">
-      <h2>Le cahier vous coûte de l'argent.</h2>
-      <div class="grid-3">
-        <article class="pain-card">
-          <span class="emoji" aria-hidden="true">📒</span>
+    <div class="wrap split">
+      <header>
+        <h2>Le cahier vous coûte de l'argent.</h2>
+        <p>Pas parce que vous travaillez mal : parce qu'un cahier ne fait pas les comptes.</p>
+      </header>
+      <div class="rows">
+        <article>
           <h3>Des dettes oubliées</h3>
           <p>« Il m'a dit qu'il paierait vendredi… » Les crédits notés à la va-vite ne reviennent jamais tous.</p>
         </article>
-        <article class="pain-card">
-          <span class="emoji" aria-hidden="true">📦</span>
+        <article>
           <h3>Du stock qui disparaît</h3>
           <p>Vous découvrez la rupture quand le client est déjà devant vous, ou la perte quand il est trop tard.</p>
         </article>
-        <article class="pain-card">
-          <span class="emoji" aria-hidden="true">❓</span>
+        <article>
           <h3>Un bénéfice inconnu</h3>
           <p>Beaucoup de ventes, peu d'argent en poche. Où part la différence ? Le cahier ne le dit pas.</p>
         </article>
@@ -86,24 +92,27 @@
   <!-- 3. La solution : quatre bénéfices concrets. -->
   <section class="features">
     <div class="wrap">
-      <p class="eyebrow center">La solution</p>
-      <h2 class="center">ABAHZ fait les comptes à votre place.</h2>
+      <h2>ABAHZ fait les comptes à votre place.</h2>
       <div class="grid-2">
         <article class="feat">
           <div class="feat-ic"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h11L21 7H6.2M9 20h.01M18 20h.01"/></svg></div>
-          <div><h3>Encaissez en quelques secondes</h3><p>Touchez les produits, validez : la vente est enregistrée, le stock baisse tout seul, la facture part sur WhatsApp.</p></div>
+          <h3>Encaissez en quelques secondes</h3>
+          <p>Touchez les produits, validez : la vente est enregistrée, le stock baisse tout seul, la facture part sur WhatsApp.</p>
         </article>
         <article class="feat">
           <div class="feat-ic"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM4 21a8 8 0 0 1 16 0"/></svg></div>
-          <div><h3>Chaque dette sous contrôle</h3><p>Qui vous doit, combien, depuis quand. Paiements partiels suivis, relance du client par WhatsApp en un geste.</p></div>
+          <h3>Chaque dette sous contrôle</h3>
+          <p>Qui vous doit, combien, depuis quand. Paiements partiels suivis, relance du client par WhatsApp en un geste.</p>
         </article>
         <article class="feat">
           <div class="feat-ic"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5V8zM3 8l9 5 9-5M12 13v8"/></svg></div>
-          <div><h3>Un stock qui vous prévient</h3><p>Alerte avant la rupture, valeur totale du stock toujours à jour. Vous commandez au bon moment.</p></div>
+          <h3>Un stock qui vous prévient</h3>
+          <p>Alerte avant la rupture, valeur totale du stock toujours à jour. Vous commandez au bon moment.</p>
         </article>
         <article class="feat">
           <div class="feat-ic"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-          <div><h3>Votre vrai bénéfice, chaque jour</h3><p>Chiffre d'affaires, dépenses, bénéfice et rapport imprimable : vous pilotez votre boutique comme une entreprise.</p></div>
+          <h3>Votre vrai bénéfice, chaque jour</h3>
+          <p>Chiffre d'affaires, dépenses, bénéfice et rapport imprimable : vous pilotez votre boutique comme une entreprise.</p>
         </article>
       </div>
     </div>
@@ -111,8 +120,11 @@
 
   <!-- 4. Différenciation : pensé pour le terrain. -->
   <section class="local">
-    <div class="wrap">
-      <h2>Pensé pour nos boutiques, pas pour l'Europe.</h2>
+    <div class="wrap split">
+      <header>
+        <h2>Pensé pour nos boutiques, pas pour l'Europe.</h2>
+        <p>ABAHZ est fait à Beni, au Nord-Kivu, pour la façon dont on vend ici.</p>
+      </header>
       <ul class="local-list">
         <li><b>Avec ou sans internet.</b> Pas de réseau ? Vous vendez quand même. Tout se synchronise au retour de la connexion.</li>
         <li><b>En francs ou en dollars.</b> Vendez et suivez vos comptes en FC ou en&nbsp;$, comme dans votre boutique.</li>
@@ -126,22 +138,20 @@
   <!-- 5. Installation : Android sur inscription (Gmail + WhatsApp), MSI sur ordinateur. -->
   <section class="install" id="installer">
     <div class="wrap">
-      <h2 class="center">Commencez en 3 étapes</h2>
+      <h2>Commencez en 3 étapes.</h2>
       <ol class="steps">
         <li><span>1</span><div><b>Inscrivez-vous</b> avec votre adresse Gmail et votre numéro WhatsApp.</div></li>
         <li><span>2</span><div><b>Recevez votre lien</b> d'installation sur WhatsApp.</div></li>
         <li><span>3</span><div><b>Installez depuis Google Play</b>, créez votre boutique et faites votre première vente.</div></li>
       </ol>
-      <div class="center">
-        <div class="cta-row cta-center">
-          <a class="btn btn-lg btn-primary" href="#acces" data-track="acces-steps">Obtenir l'accès gratuit</a>
-          <a class="btn btn-lg btn-ghost" href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi" data-track="msi-steps">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-            Version Windows
-          </a>
-        </div>
-        <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 120 Mo) · iPhone : inscrivez-vous ci-dessous, nous vous préviendrons.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg btn-primary" href="#acces" data-track="acces-steps">Obtenir l'accès gratuit</a>
+        <a class="btn btn-lg btn-ghost" href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi" data-track="msi-steps">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+          Version Windows
+        </a>
       </div>
+      <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 120 Mo) · iPhone : inscrivez-vous ci-dessous, nous vous préviendrons.</p>
     </div>
   </section>
 
@@ -149,7 +159,7 @@
   <section class="early" id="acces">
     <div class="wrap early-grid">
       <div>
-        <p class="eyebrow light">Places limitées</p>
+        <p class="kicker">Places limitées</p>
         <h2>Utilisez ABAHZ gratuitement.</h2>
         <p>Laissez votre adresse Gmail et votre numéro WhatsApp. Les premiers commerçants inscrits reçoivent :</p>
         <ul class="perks">
@@ -170,7 +180,7 @@
         </div>
         <label for="name">Votre prénom ou votre boutique <small>(facultatif)</small></label>
         <input id="name" name="name" type="text" autocomplete="organization" maxlength="80" placeholder="Ex. : Boutique Neema, Béni">
-        <button class="btn btn-lg btn-accent" type="submit">Je veux l'accès gratuit</button>
+        <button class="btn btn-lg btn-primary" type="submit">Je veux l'accès gratuit</button>
         <p id="lead-msg" class="lead-msg" role="status" aria-live="polite"></p>
         <p class="muted small">Votre demande part sur WhatsApp. Nous vous répondons avec votre lien d'installation.</p>
       </form>
@@ -180,9 +190,10 @@
   <!-- 7. Matériel : un clic sur un produit ouvre WhatsApp ; le lien de sa page s'affiche avec la photo et la légende « nom — prix ». -->
   <section class="catalog" id="produits">
     <div class="wrap">
-      <p class="eyebrow center">Matériel pour commerçants</p>
-      <h2 class="center">Équipez votre boutique, tout est prêt à l'emploi.</h2>
-      <p class="lead center">Imprimantes de tickets, caméras de surveillance et caisses POS complètes, compatibles avec l'application ABAHZ. Touchez un produit pour le commander sur WhatsApp.</p>
+      <div class="catalog-head">
+        <h2>Équipez votre boutique.</h2>
+        <p class="lead">Imprimantes de tickets, caméras de surveillance et caisses POS complètes, prêtes à l'emploi et compatibles avec ABAHZ. Touchez un produit pour le commander sur WhatsApp.</p>
+      </div>
       <div class="products" id="products">
 
         <article class="product" data-id="imprimante-thermique">
@@ -235,14 +246,16 @@
         </article>
 
       </div>
-      <p class="muted small center">Prix en dollars. Disponibilité et livraison confirmées sur WhatsApp.</p>
+      <p class="muted small">Prix en dollars. Disponibilité et livraison confirmées sur WhatsApp.</p>
     </div>
   </section>
 
   <!-- 8. Lien avec l'application : le matériel sert ABAHZ. -->
   <section class="local">
-    <div class="wrap">
-      <h2>Le matériel et l'application, ensemble.</h2>
+    <div class="wrap split">
+      <header>
+        <h2>Le matériel et l'application, ensemble.</h2>
+      </header>
       <ul class="local-list">
         <li><b>Ticket à chaque vente.</b> L'imprimante se connecte à ABAHZ : le client repart avec son reçu.</li>
         <li><b>Logiciel offert.</b> Avec l'imprimante thermique, l'application de gestion ABAHZ est gratuite.</li>
@@ -254,19 +267,24 @@
 
   <!-- 9. Objections fréquentes. -->
   <section class="faq">
-    <div class="wrap narrow">
-      <h2 class="center">Questions fréquentes</h2>
-      <details><summary>Pourquoi mon adresse Gmail ?</summary><p>C'est elle qui active votre accès gratuit sur Google Play. Utilisez l'adresse Gmail déjà connectée à Google Play sur votre téléphone, sinon le lien d'installation ne s'ouvrira pas.</p></details>
-      <details><summary>Faut-il internet en permanence ?</summary><p>Non. ABAHZ marche avec ou sans internet. La connexion sert seulement à sauvegarder et à synchroniser vos appareils.</p></details>
-      <details><summary>Je vends en francs ou en dollars ?</summary><p>Les deux. Vos prix peuvent être en FC ou en&nbsp;$, selon votre façon de travailler.</p></details>
-      <details><summary>Mon téléphone est ancien, ça marche ?</summary><p>Oui, l'application est conçue pour les téléphones Android d'entrée de gamme (Android 8 et plus).</p></details>
-      <details><summary>Je peux l'utiliser avec mes vendeurs ?</summary><p>Oui. Créez un compte caissier pour chaque vendeur : il encaisse, vous gardez le contrôle du stock, des dépenses et des chiffres.</p></details>
-      <details><summary>Existe-t-il une version pour ordinateur ?</summary><p>Oui. Téléchargez <a href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi">ABAHZ pour Windows</a>, puis ouvrez le fichier <code>Abahz.msi</code> pour l'installer.</p></details>
-      <details><summary>Vendez-vous aussi du matériel ?</summary><p>Oui : imprimante thermique avec le logiciel offert (50&nbsp;$), POS complet (350&nbsp;$) et caméra de surveillance (75&nbsp;$). Voir <a href="#produits">nos produits</a>.</p></details>
-      <details><summary>Comment commander du matériel ?</summary><p>Touchez le produit : WhatsApp s’ouvre avec son nom, son prix et sa photo. Appuyez sur « Envoyer », puis indiquez votre nom et votre adresse de livraison ; nous vous confirmons la disponibilité et la livraison.</p></details>
-      <details><summary>Le matériel marche-t-il avec ABAHZ ?</summary><p>Oui. L'imprimante thermique et le POS complet fonctionnent avec l'application ABAHZ ; avec l'imprimante, l'application est offerte.</p></details>
-      <details><summary>Pouvez-vous installer les caméras ?</summary><p>Oui, sur demande. Dites-nous où se trouve votre boutique ou votre dépôt dans le message WhatsApp.</p></details>
-      <details><summary>J'ai besoin d'aide pour démarrer</summary><p>Écrivez-nous sur WhatsApp, on vous accompagne pas à pas.</p></details>
+    <div class="wrap split">
+      <header>
+        <h2>Questions fréquentes</h2>
+        <p>Une autre question ? <a href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question." rel="noopener" target="_blank">Écrivez-nous sur WhatsApp</a>, on répond nous-mêmes.</p>
+      </header>
+      <div class="faq-list">
+        <details><summary>Pourquoi mon adresse Gmail ?</summary><p>C'est elle qui active votre accès gratuit sur Google Play. Utilisez l'adresse Gmail déjà connectée à Google Play sur votre téléphone, sinon le lien d'installation ne s'ouvrira pas.</p></details>
+        <details><summary>Faut-il internet en permanence ?</summary><p>Non. ABAHZ marche avec ou sans internet. La connexion sert seulement à sauvegarder et à synchroniser vos appareils.</p></details>
+        <details><summary>Je vends en francs ou en dollars ?</summary><p>Les deux. Vos prix peuvent être en FC ou en&nbsp;$, selon votre façon de travailler.</p></details>
+        <details><summary>Mon téléphone est ancien, ça marche ?</summary><p>Oui, l'application est conçue pour les téléphones Android d'entrée de gamme (Android 8 et plus).</p></details>
+        <details><summary>Je peux l'utiliser avec mes vendeurs ?</summary><p>Oui. Créez un compte caissier pour chaque vendeur : il encaisse, vous gardez le contrôle du stock, des dépenses et des chiffres.</p></details>
+        <details><summary>Existe-t-il une version pour ordinateur ?</summary><p>Oui. Téléchargez <a href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi">ABAHZ pour Windows</a>, puis ouvrez le fichier <code>Abahz.msi</code> pour l'installer.</p></details>
+        <details><summary>Vendez-vous aussi du matériel ?</summary><p>Oui : imprimante thermique avec le logiciel offert (50&nbsp;$), POS complet (350&nbsp;$) et caméra de surveillance (75&nbsp;$). Voir <a href="#produits">nos produits</a>.</p></details>
+        <details><summary>Comment commander du matériel ?</summary><p>Touchez le produit : WhatsApp s’ouvre avec son nom, son prix et sa photo. Appuyez sur « Envoyer », puis indiquez votre nom et votre adresse de livraison ; nous vous confirmons la disponibilité et la livraison.</p></details>
+        <details><summary>Le matériel marche-t-il avec ABAHZ ?</summary><p>Oui. L'imprimante thermique et le POS complet fonctionnent avec l'application ABAHZ ; avec l'imprimante, l'application est offerte.</p></details>
+        <details><summary>Pouvez-vous installer les caméras ?</summary><p>Oui, sur demande. Dites-nous où se trouve votre boutique ou votre dépôt dans le message WhatsApp.</p></details>
+        <details><summary>J'ai besoin d'aide pour démarrer</summary><p>Écrivez-nous sur WhatsApp, on vous accompagne pas à pas.</p></details>
+      </div>
     </div>
   </section>
 
@@ -278,6 +296,7 @@
     <nav class="foot-nav" aria-label="Pages">
       <a href="#top">Application</a>
       <a href="#produits">Produits</a>
+      <a href="#installer">Installer</a>
     </nav>
     <a class="wa-link" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question." rel="noopener" target="_blank">
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/></svg>
@@ -290,12 +309,12 @@
     <a href="https://wa.me/243846696889" rel="noopener" target="_blank">WhatsApp +243 846 696 889</a>
   </div>
   <address class="wrap admin-address muted">62, Av. Semuliki, Quartier Tamende, Commune Mulekera, Ville de Beni, Nord-Kivu / RDC</address>
-  <p class="muted small center" id="copy">© Abahz Inc.</p>
+  <div class="wrap"><p class="muted small" id="copy">© Abahz Inc.</p></div>
 </footer>
 
 <!-- Barre d'action fixe sur mobile. -->
 <div class="sticky" id="sticky">
-  <a class="btn btn-accent" href="#acces" data-track="acces-sticky">Accès gratuit</a>
+  <a class="btn btn-primary" href="#acces" data-track="acces-sticky">Accès gratuit</a>
 </div>
 
 
