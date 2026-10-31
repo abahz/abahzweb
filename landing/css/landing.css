@@ -251,5 +251,29 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 .pp-how { margin: 28px 0 20px; padding-left: 1.3em; color: var(--muted); display: grid; gap: 6px; font-size: .95rem; }
 .pp-how li::marker { color: var(--ink); font-weight: 600; }
 .nav-back { display: inline-block !important; }
+
+/* Pages produits sur mobile : photo moins haute, texte resserré, commande dans une barre fixe */
+.pp-bar { display: none; }
+@media (max-width: 859px) {
+  .product-page { padding: 16px 0 40px; }
+  .pp-grid { gap: 24px; }
+  .pp-art { aspect-ratio: 4 / 3; padding: 20px; }
+  .pp-info h1 { font-size: 1.75rem; }
+  .pp-info .price { font-size: 1.75rem; margin-bottom: 20px; }
+  .pp-info .specs { margin-bottom: 0; }
+  .pp-cta { display: none; }
+  .pp-how { margin-top: 24px; }
+  .product-page ~ .foot .foot-row { flex-direction: column; align-items: flex-start; }
+  .product-page ~ .foot { padding-bottom: 96px; }
+  body:has(.pp-bar) { padding-bottom: 0; }
+  .pp-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; gap: 14px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: var(--bg); border-top: 1px solid var(--line);
+  }
+  .pp-bar-info { display: grid; min-width: 0; flex: 1; line-height: 1.2; }
+  .pp-bar-name { color: var(--muted); font-size: .85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pp-bar .price { font-size: 1.3rem; }
+  .pp-bar .btn { flex: none; }
+}
 .foot-app { color: var(--ink); font-weight: 600; text-decoration: none; }
 .foot-app:hover { text-decoration: underline; text-underline-offset: 4px; }
