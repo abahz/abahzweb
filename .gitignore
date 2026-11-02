@@ -1,4 +1,5 @@
 .netlify/
 
-# Installateur Windows : trop lourd pour git (>100 Mo), publié en Release GitHub.
+# Installateurs Windows ignorés, sauf celui servi par la landing (/Abahz.msi).
 *.msi
+!landing/Abahz.msi

@@ -146,12 +146,12 @@
       </ol>
       <div class="cta-row">
         <a class="btn btn-lg btn-primary" href="#acces" data-track="acces-steps">Obtenir l'accès gratuit</a>
-        <a class="btn btn-lg btn-ghost" href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi" data-track="msi-steps">
+        <a class="btn btn-lg btn-ghost" href="Abahz.msi" data-track="msi-steps">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
           Version Windows
         </a>
       </div>
-      <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 120 Mo) · iPhone : inscrivez-vous ci-dessous, nous vous préviendrons.</p>
+      <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 73 Mo) · iPhone : inscrivez-vous ci-dessous, nous vous préviendrons.</p>
     </div>
   </section>
 
@@ -246,7 +246,7 @@
         <details><summary>Je vends en francs ou en dollars ?</summary><p>Les deux. Vos prix peuvent être en FC ou en&nbsp;$, selon votre façon de travailler.</p></details>
         <details><summary>Mon téléphone est ancien, ça marche ?</summary><p>Oui, l'application est conçue pour les téléphones Android d'entrée de gamme (Android 8 et plus).</p></details>
         <details><summary>Je peux l'utiliser avec mes vendeurs ?</summary><p>Oui. Créez un compte caissier pour chaque vendeur : il encaisse, vous gardez le contrôle du stock, des dépenses et des chiffres.</p></details>
-        <details><summary>Existe-t-il une version pour ordinateur ?</summary><p>Oui. Téléchargez <a href="https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi">ABAHZ pour Windows</a>, puis ouvrez le fichier <code>Abahz.msi</code> pour l'installer.</p></details>
+        <details><summary>Existe-t-il une version pour ordinateur ?</summary><p>Oui. Téléchargez <a href="Abahz.msi">ABAHZ pour Windows</a>, puis ouvrez le fichier <code>Abahz.msi</code> pour l'installer.</p></details>
         <details><summary>Vendez-vous aussi du matériel ?</summary><p>Oui : imprimante thermique avec le logiciel offert (50&nbsp;$), POS complet (350&nbsp;$) et caméra de surveillance (75&nbsp;$). Voir <a href="#produits">nos produits</a>.</p></details>
         <details><summary>Comment commander du matériel ?</summary><p>Touchez le produit : WhatsApp s’ouvre avec son nom, son prix et sa photo. Appuyez sur « Envoyer », puis indiquez votre nom et votre adresse de livraison ; nous vous confirmons la disponibilité et la livraison.</p></details>
         <details><summary>Le matériel marche-t-il avec ABAHZ ?</summary><p>Oui. L'imprimante thermique et le POS complet fonctionnent avec l'application ABAHZ ; avec l'imprimante, l'application est offerte.</p></details>
@@ -295,25 +295,31 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap foot-row">
-    <div class="brand"><img src="icons/logo.webp" alt="" width="28" height="28"><span>ABAHZ</span></div>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <div class="brand"><img src="icons/logo.webp" alt="" width="28" height="28"><span>ABAHZ</span></div>
+      <p class="muted">La gestion de votre boutique dans votre téléphone. Fait à Beni, Nord-Kivu.</p>
+    </div>
     <nav class="foot-nav" aria-label="Pages">
       <a href="#top">Application</a>
       <a href="#produits">Produits</a>
       <a href="#installer">Installer</a>
+      <a href="#acces">Accès gratuit</a>
     </nav>
-    <a class="wa-link" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question." rel="noopener" target="_blank">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/></svg>
-      Support WhatsApp
-    </a>
+    <div class="foot-contact">
+      <a class="btn btn-ghost wa-link" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question." rel="noopener" target="_blank">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/></svg>
+        Support WhatsApp
+      </a>
+      <p class="admin-contact">
+        <span class="muted">Administration</span>
+        <a href="mailto:abahzgoup@gmail.com">abahzgoup@gmail.com</a>
+        <a href="https://wa.me/243846696889" rel="noopener" target="_blank">WhatsApp +243 846 696 889</a>
+      </p>
+      <address class="admin-address muted">62, Av. Semuliki, Quartier Tamende, Commune Mulekera, Ville de Beni, Nord-Kivu / RDC</address>
+    </div>
   </div>
-  <div class="wrap admin-contact">
-    <span class="muted">Administration :</span>
-    <a href="mailto:abahzgoup@gmail.com">abahzgoup@gmail.com</a>
-    <a href="https://wa.me/243846696889" rel="noopener" target="_blank">WhatsApp +243 846 696 889</a>
-  </div>
-  <address class="wrap admin-address muted">62, Av. Semuliki, Quartier Tamende, Commune Mulekera, Ville de Beni, Nord-Kivu / RDC</address>
-  <div class="wrap"><p class="muted small" id="copy">© Abahz Inc.</p></div>
+  <div class="wrap foot-bottom"><p class="muted small" id="copy">© Abahz Inc.</p></div>
 </footer>
 
 <!-- Barre d'action fixe sur mobile. -->

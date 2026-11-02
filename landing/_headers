@@ -13,3 +13,8 @@
 
 /icons/*
   Cache-Control: public, max-age=604800
+
+# Installateur Windows : téléchargé, jamais affiché.
+/Abahz.msi
+  Content-Type: application/x-msi
+  Content-Disposition: attachment; filename="Abahz.msi"
