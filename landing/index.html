@@ -29,7 +29,7 @@
   <div class="nav-right">
     <a class="nav-link" href="#produits">Produits</a>
     <a class="nav-link" href="#installer">Installer</a>
-    <a class="btn btn-sm btn-primary" href="#acces" data-track="acces-nav">Accès gratuit</a>
+    <a class="btn btn-sm btn-primary" href="inscription.html" data-track="acces-nav">Créer ma boutique</a>
   </div>
 </header>
 
@@ -44,7 +44,7 @@
         <p class="lead">Ventes, stock, dettes clients et dépenses au même endroit, <strong>avec ou sans internet</strong>, en FC ou en&nbsp;$. Chaque soir, vous savez combien vous avez gagné, sans ouvrir le cahier.</p>
 
         <div class="cta-row">
-          <a class="btn btn-lg btn-primary" href="#acces" data-track="acces-hero">Obtenir l'accès gratuit</a>
+          <a class="btn btn-lg btn-primary" href="inscription.html" data-track="acces-hero">Créer ma boutique gratuitement</a>
           <a class="btn btn-lg btn-ghost" href="Abahz.msi" download data-track="msi-hero">Version Windows</a>
         </div>
         <ul class="trust">
@@ -135,23 +135,23 @@
     </div>
   </section>
 
-  <!-- 5. Installation : Android sur inscription (Gmail + WhatsApp), MSI sur ordinateur. -->
+  <!-- 5. Installation : inscription Google sur le site, puis l'app avec le même compte ; MSI sur ordinateur. -->
   <section class="install" id="installer">
     <div class="wrap">
       <h2>Commencez en 3 étapes.</h2>
       <ol class="steps">
-        <li><span>1</span><div><b>Inscrivez-vous</b> avec votre adresse Gmail et votre numéro WhatsApp.</div></li>
-        <li><span>2</span><div><b>Recevez votre lien</b> d'installation sur WhatsApp.</div></li>
-        <li><span>3</span><div><b>Installez depuis Google Play</b>, créez votre boutique et faites votre première vente.</div></li>
+        <li><span>1</span><div><b>Créez votre boutique</b> sur abahz.com avec votre compte Google (Gmail).</div></li>
+        <li><span>2</span><div><b>Installez l'application</b> : nous vous envoyons le lien Google Play sur WhatsApp.</div></li>
+        <li><span>3</span><div><b>Connectez-vous avec le même Gmail</b> : votre boutique est déjà là, faites votre première vente.</div></li>
       </ol>
       <div class="cta-row">
-        <a class="btn btn-lg btn-primary" href="#acces" data-track="acces-steps">Obtenir l'accès gratuit</a>
+        <a class="btn btn-lg btn-primary" href="inscription.html" data-track="acces-steps">Créer ma boutique gratuitement</a>
         <a class="btn btn-lg btn-ghost" href="Abahz.msi" data-track="msi-steps">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
           Version Windows
         </a>
       </div>
-      <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 73 Mo) · iPhone : inscrivez-vous ci-dessous, nous vous préviendrons.</p>
+      <p class="muted small">Android 8 ou plus récent · Windows 10 ou 11 (fichier <code>Abahz.msi</code>, 73 Mo) · iPhone : créez votre boutique, nous vous préviendrons.</p>
     </div>
   </section>
 
@@ -241,7 +241,7 @@
         <p>Une autre question ? <a href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question." rel="noopener" target="_blank">Écrivez-nous sur WhatsApp</a>, on répond nous-mêmes.</p>
       </header>
       <div class="faq-list">
-        <details><summary>Pourquoi mon adresse Gmail ?</summary><p>C'est elle qui active votre accès gratuit sur Google Play. Utilisez l'adresse Gmail déjà connectée à Google Play sur votre téléphone, sinon le lien d'installation ne s'ouvrira pas.</p></details>
+        <details><summary>Pourquoi un compte Google (Gmail) ?</summary><p>C'est votre identifiant ABAHZ : vous créez la boutique avec lui sur le site, puis vous vous connectez avec le même compte dans l'application. Choisissez l'adresse Gmail déjà connectée à Google Play sur votre téléphone : c'est elle qui reçoit l'accès à l'application.</p></details>
         <details><summary>Faut-il internet en permanence ?</summary><p>Non. ABAHZ marche avec ou sans internet. La connexion sert seulement à sauvegarder et à synchroniser vos appareils.</p></details>
         <details><summary>Je vends en francs ou en dollars ?</summary><p>Les deux. Vos prix peuvent être en FC ou en&nbsp;$, selon votre façon de travailler.</p></details>
         <details><summary>Mon téléphone est ancien, ça marche ?</summary><p>Oui, l'application est conçue pour les téléphones Android d'entrée de gamme (Android 8 et plus).</p></details>
@@ -256,14 +256,14 @@
     </div>
   </section>
 
-  <!-- 9. Inscription à l'accès gratuit (Gmail + WhatsApp), juste avant le pied de page. -->
+  <!-- 9. Création de la boutique (page inscription.html), juste avant le pied de page. -->
   <section class="early" id="acces">
     <div class="wrap early-grid">
       <!-- Sur mobile : titre, formulaire, puis avantages ; sur ordinateur : formulaire à droite. -->
       <div class="early-intro">
         <p class="kicker">Places limitées</p>
         <h2>Utilisez ABAHZ gratuitement.</h2>
-        <p>Laissez votre adresse Gmail et votre numéro WhatsApp : nous vous envoyons votre lien d'installation.</p>
+        <p>Créez votre boutique en deux minutes avec votre compte Google, puis installez l'application : votre boutique vous attend.</p>
       </div>
       <div class="early-perks">
         <p>Les premiers commerçants inscrits reçoivent :</p>
@@ -275,20 +275,16 @@
         </ul>
       </div>
 
-      <form id="lead" class="lead-form" novalidate>
-        <label for="email">Votre adresse Gmail <small>(celle de Google Play sur votre téléphone)</small></label>
-        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="next" maxlength="254" placeholder="Ex. : neema@gmail.com" required>
-        <label for="phone">Votre numéro WhatsApp</label>
-        <div class="phone-field">
-          <span>+243</span>
-          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="97 123 4567" required>
-        </div>
-        <label for="name">Votre prénom ou votre boutique <small>(facultatif)</small></label>
-        <input id="name" name="name" type="text" autocomplete="organization" enterkeyhint="send" maxlength="80" placeholder="Ex. : Boutique Neema, Béni">
-        <button class="btn btn-lg btn-primary" type="submit">Je veux l'accès gratuit</button>
-        <p id="lead-msg" class="lead-msg" role="status" aria-live="polite"></p>
-        <p class="muted small">Votre demande part sur WhatsApp. Nous vous répondons avec votre lien d'installation.</p>
-      </form>
+      <div class="lead-form signup-cta">
+        <p class="signup-cta-title">Votre boutique en 3 étapes</p>
+        <ol class="pp-how">
+          <li>Connexion avec votre compte Google (Gmail)</li>
+          <li>Nom de la boutique et numéro WhatsApp</li>
+          <li>Installation de l'application avec le même Gmail</li>
+        </ol>
+        <a class="btn btn-lg btn-primary" href="inscription.html" data-track="acces-form">Créer ma boutique avec Google</a>
+        <p class="muted small">Pas de compte Gmail ou besoin d'aide ? <a href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20besoin%20d%27aide%20pour%20cr%C3%A9er%20ma%20boutique." rel="noopener" target="_blank">Écrivez-nous sur WhatsApp</a>.</p>
+      </div>
     </div>
   </section>
 
@@ -304,7 +300,7 @@
       <a href="#top">Application</a>
       <a href="#produits">Produits</a>
       <a href="#installer">Installer</a>
-      <a href="#acces">Accès gratuit</a>
+      <a href="inscription.html">Créer ma boutique</a>
     </nav>
     <div class="foot-contact">
       <a class="btn btn-ghost wa-link" href="https://wa.me/243846696889?text=Bonjour%20ABAHZ%2C%20j%27ai%20une%20question." rel="noopener" target="_blank">
@@ -325,7 +321,7 @@
 <!-- Barre d'action fixe sur mobile. -->
 <div class="sticky" id="sticky">
   <div class="sticky-info"><b>ABAHZ</b><span>Gratuit pour les premiers inscrits</span></div>
-  <a class="btn btn-primary" href="#acces" data-track="acces-sticky">Accès gratuit</a>
+  <a class="btn btn-primary" href="inscription.html" data-track="acces-sticky">Créer ma boutique</a>
 </div>
 
 

@@ -357,3 +357,47 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 }
 .foot-app { color: var(--ink); font-weight: 600; text-decoration: none; }
 .foot-app:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Inscription (inscription.html) : une étape à la fois, colonne étroite */
+.signup { padding: 40px 0 72px; }
+@media (min-width: 900px) { .signup { padding: 72px 0 96px; } }
+.signup-wrap { max-width: 560px; }
+.signup-page { padding-bottom: 0; }
+.signup-step { padding: 0; border-top: 0; }
+.signup-step h1 { font-size: clamp(1.9rem, 6vw, 2.6rem); }
+.signup-step .lead { margin-bottom: 1.2em; }
+.signup-step > .btn { width: 100%; margin-top: 8px; }
+.signup-step .lead-msg { margin: 12px 0 0; }
+.signup-step > .muted.small { margin-top: 16px; }
+.signup .lead-form { border: 1px solid var(--line); }
+.btn-google svg { width: 20px; height: 20px; }
+.who { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: .92rem; color: var(--muted); margin-bottom: 28px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.who b { color: var(--ink); font-weight: 600; word-break: break-all; }
+.link-btn { background: none; border: 0; padding: 4px 0; font: inherit; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.lead-form select {
+  width: 100%; min-height: 50px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--ink); font: inherit; font-size: 1.02rem;
+}
+.lead-form select:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent); }
+.choice { border: 0; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.choice legend { font-weight: 600; font-size: .95rem; padding: 0; margin-bottom: 8px; }
+.lead-form .choice label { margin: 0; display: flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); font-weight: 500; cursor: pointer; }
+.choice label:has(input:checked) { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+.lead-form .choice input { accent-color: var(--primary); width: 18px; height: 18px; margin: 0; min-height: 0; padding: 0; border: 0; box-shadow: none; }
+.ok-kicker { color: var(--success) !important; }
+.install-steps { list-style: none; padding: 0; margin: 8px 0 24px; counter-reset: i; border-top: 1px solid var(--line); }
+.install-steps li { counter-increment: i; display: grid; gap: 4px; padding: 20px 0 20px 40px; position: relative; border-bottom: 1px solid var(--line); }
+.install-steps li[hidden] { display: none; }
+.install-steps li::before { content: counter(i); position: absolute; left: 0; top: 18px; font-size: 1.5rem; font-weight: 300; color: var(--muted); font-variant-numeric: tabular-nums; }
+.install-steps .btn { justify-self: start; margin-top: 10px; }
+@media (max-width: 480px) { .install-steps .btn { justify-self: stretch; } }
+@media (max-width: 759px) {
+  .signup { padding: 24px 0 48px; }
+  .signup .lead-form { margin: 0 -20px; border-width: 1px 0; }
+  .lead-form select { min-height: 54px; font-size: 16px; }
+  .lead-form .choice label { min-height: 54px; }
+}
+.signup-cta { gap: 0; }
+.signup-cta-title { font-weight: 700; font-size: 1.15rem; color: var(--ink) !important; text-align: left !important; }
+.signup-cta .pp-how { margin: 14px 0 6px; }
+.signup-cta > .muted { margin-top: 14px !important; }
