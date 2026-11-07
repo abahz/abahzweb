@@ -21,3 +21,10 @@
   to = "https://play.google.com/store/apps/details?id=com.abahz.abahz"
   status = 301
   force = true
+
+# L'installateur Windows est publié dans les releases GitHub (dernière version).
+[[redirects]]
+  from = "/Abahz.msi"
+  to = "https://github.com/abahz/abahzweb/releases/latest/download/Abahz.msi"
+  status = 302
+  force = true
