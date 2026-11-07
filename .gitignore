@@ -1,4 +1,4 @@
 .netlify/
 
-# Installateurs Windows : publiés dans les releases GitHub, jamais dans le dépôt.
+# Installateurs Windows : publiés dans les releases de abahz/deskApp, jamais dans ce dépôt.
 *.msi
