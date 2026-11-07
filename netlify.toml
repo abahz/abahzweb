@@ -8,3 +8,16 @@
   from = "/produits.html"
   to = "/#produits"
   status = 301
+
+# L'inscription se fait maintenant dans l'application : les anciens liens mènent à Google Play.
+[[redirects]]
+  from = "/inscription.html"
+  to = "https://play.google.com/store/apps/details?id=com.abahz.abahz"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/inscription"
+  to = "https://play.google.com/store/apps/details?id=com.abahz.abahz"
+  status = 301
+  force = true
