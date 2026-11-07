@@ -1,5 +1,5 @@
 // Landing ABAHZ : année du pied de page, retrait de l'ancien service worker et barre d'action mobile.
-// L'inscription (connexion Google + création de la boutique) se fait sur inscription.html.
+// La création de la boutique se fait dans l'application (Google Play ou Windows).
 
 (function () {
   'use strict';
