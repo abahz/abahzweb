@@ -25,6 +25,6 @@
 # L'installateur Windows est publié dans les releases du dépôt GitHub abahz/deskApp.
 [[redirects]]
   from = "/Abahz.msi"
-  to = "https://github.com/abahz/deskApp/releases/download/v1.8.4/Abahz.msi"
+  to = "https://github.com/abahz/deskApp/releases/latest/download/Abahz.msi"
   status = 302
   force = true
